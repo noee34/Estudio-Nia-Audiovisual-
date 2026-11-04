@@ -90,15 +90,15 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
 <div class="c big" id="t5">Siente la<br><span class="red">diferencia.</span></div>
 <div class="c" id="endw" style="text-align:center"><img id="logo" src="${LOGO}"><div class="sub" id="t6" style="margin-top:${(v ? 60 : 40) * u}px">Reprogramación de centralitas</div><div id="t7" style="margin-top:${(v ? 70 : 40) * u}px"><span class="pill">PIDE TU CITA</span></div></div>
 <div id="dyno"><img id="dimg"><div id="dtag">BANCO DE POTENCIA</div><div id="drpm">0 RPM</div>
- <div id="dpan"><div class="dl">CURVA DE POTENCIA · <b>ACM</b></div>
+ <div id="dpan"><div class="dl">BMW 330d E92 · <b>ACM STAGE 1</b></div>
   <div class="dro"><div class="r">POTENCIA MÁX.<b id="dcv">0 CV</b></div><div>PAR MÁX.<b id="dnm">0 Nm</b></div></div>
   <svg id="dg" viewBox="0 0 600 340" style="width:100%;flex:1;min-height:0">
    ${Array.from({ length: 6 }, (_, i) => `<line x1="40" x2="590" y1="${20 + i * 58}" y2="${20 + i * 58}" stroke="#1d2126"/>`).join('')}
-   ${Array.from({ length: 7 }, (_, i) => `<line y1="20" y2="310" x1="${40 + i * 91.6}" x2="${40 + i * 91.6}" stroke="#1d2126"/><text x="${40 + i * 91.6}" y="332" fill="#5c6168" font-family="S" font-size="14" text-anchor="middle">${i + 1}k</text>`).join('')}
+   ${Array.from({ length: 5 }, (_, i) => `<line y1="20" y2="310" x1="${40 + i * 137.5}" x2="${40 + i * 137.5}" stroke="#1d2126"/><text x="${40 + i * 137.5}" y="332" fill="#5c6168" font-family="S" font-size="14" text-anchor="middle">${i + 1}k</text>`).join('')}
    <path id="ds" fill="none" stroke="#6b7076" stroke-width="3" stroke-dasharray="8 6"/>
    <path id="da" fill="none" stroke="#E1262D" stroke-width="4.5"/><circle id="dd" r="7" fill="#fff"/>
    <text x="590" y="16" fill="#6b7076" font-family="S" font-size="13" text-anchor="end" letter-spacing="2">— — DE SERIE   ━ ACM</text></svg>
-  <div class="disc">VALORES ILUSTRATIVOS · IMAGEN GENERADA CON IA</div></div></div>
+  <div class="disc">VALORES ORIENTATIVOS · CADA MOTOR SE MIDE EN BANCO · IMAGEN GENERADA CON IA</div></div></div>
 <div id="wipe"><b style="background:#d9d9d9"></b><b style="background:#8c8c8c"></b><b style="background:#E1262D"></b></div>
 <div id="grain"></div><div id="fade"></div></div>
 <script>
@@ -144,17 +144,20 @@ window.base=(t)=>{
   $('grain').style.backgroundPosition=((t*977)%220)+'px '+((t*631)%220)+'px';
 };
 // curvas del banco (ilustrativas): CV en función de las rpm
-const Ps=r=>{const x=(r-1000)/6000;return 168*Math.sin(Math.min(1,x*1.08)*Math.PI*0.62)**1.15*(x>0.85?1-(x-0.85)*0.9:1)};
-const Pa=r=>Ps(r)*(1+0.075*Math.exp(-Math.pow(((r-1000)/6000-0.62)/0.28,2)));
-const X=r=>40+(r-1000)/6000*550, Y=p=>310-p/200*290;
+const lerp=(pts,r)=>{for(let i=1;i<pts.length;i++){const[a,va]=pts[i-1],[b,vb]=pts[i];if(r<=b){const k=(r-a)/(b-a),e=k*k*(3-2*k);return va+(vb-va)*e}}return pts[pts.length-1][1]};
+const Ts=r=>lerp([[1000,230],[1750,520],[3000,520],[4000,426],[4600,345]],r);
+const Ta=r=>lerp([[1000,250],[2000,615],[2600,612],[4000,523],[4600,427]],r);
+const Ps=r=>Ts(r)*r/7023;
+const Pa=r=>Ta(r)*r/7023;
+const X=r=>40+(r-1000)/4000*550, Y=p=>310-p/330*290;
 const path=(f,r1)=>{let d='';for(let r=1000;r<=r1;r+=50)d+=(r===1000?'M':'L')+X(r).toFixed(1)+' '+Y(f(r)).toFixed(1);return d};
-document.getElementById('ds').setAttribute('d',path(Ps,7000));
+document.getElementById('ds').setAttribute('d',path(Ps,4600));
 window.RW=[0.0,8.25,12.75,13.85+${SHIFT}];
 window.dyno=(t)=>{ // t local 0..4.5
-  const r=1000+6000*eio((t-0.35)/3.6);
+  const r=1000+3600*eio((t-0.35)/3.6);
   document.getElementById('da').setAttribute('d',path(Pa,r));
   const dd=document.getElementById('dd'); dd.setAttribute('cx',X(r)); dd.setAttribute('cy',Y(Pa(r)));
-  let cv=0,nm=0; for(let x=1000;x<=r;x+=25){const c=Pa(x); cv=Math.max(cv,c); nm=Math.max(nm,c*7023/x);} // valores máximos, como en la hoja de banco
+  let cv=0,nm=0; for(let x=1000;x<=r;x+=25){cv=Math.max(cv,Pa(x)); nm=Math.max(nm,Ta(x));} // valores máximos, como en la hoja de banco
   document.getElementById('dcv').textContent=Math.round(cv)+' CV'; document.getElementById('dnm').textContent=Math.round(nm)+' Nm';
   document.getElementById('drpm').textContent=Math.round(r/10)*10+' RPM';
 };
@@ -206,7 +209,7 @@ async function renderDyno(W, H) { // fotogramas del banco 3D (servidor local par
   fs.mkdirSync(path.join(P, 'video'), { recursive: true }); fs.mkdirSync(TMP, { recursive: true });
   if (fs.existsSync(CLIP)) { clipDyno(1080, 1920); clipDyno(1920, 1080); } else { await renderDyno(1080, 1920); await renderDyno(1920, 1080); }
   const b = await chromium.launch();
-  for (const [W, H, name] of [[1080, 1920, 'ACM_anuncio-reprogramacion_9x16_v4.mp4'], [1920, 1080, 'ACM_anuncio-reprogramacion_16x9_v4.mp4']]) {
+  for (const [W, H, name] of [[1080, 1920, 'ACM_anuncio-reprogramacion_9x16_v5.mp4'], [1920, 1080, 'ACM_anuncio-reprogramacion_16x9_v5.mp4']]) {
     const tmp = fs.mkdtempSync(path.join(TMP, 'acm-'));
     fs.writeFileSync(path.join(tmp, 'p.html'), page(W, H));
     const p = await b.newPage({ viewport: { width: W, height: H } });
