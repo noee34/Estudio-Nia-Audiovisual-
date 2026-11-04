@@ -101,11 +101,11 @@ const S={
   bubble('Tu sueldo: ruedas.\\nTus amigos: ¿quedamos?\\nTú: tengo tanda.',540,690,t,1.2);
   sub('Ruedas usadas y baratas.\\nCada tanda cuenta',t,1540);},
  outro(t){bg(RED,t);const k=back(t/0.5);car(540,760,Math.sin(t*6)*0.15,1.05*k,YEL,1,{rear:true,look:Math.sin(t*3)});
-  txt('PARTE 2: TÚ ELIGES',540,1060,76,YEL);
-  [['A','FRENO\\nDE MANO',300,0.5],['B','PATADA DE\\nEMBRAGUE',780,0.8]].forEach(([l,o,X,d])=>{const q=back((t-d)/0.35);if(q<=0)return;x.save();x.translate(X,1240);x.scale(q,q);x.rotate(l==='A'?-0.04:0.04);
+  txt('PARTE 2: PRÓXIMAMENTE',540,1060,76,YEL);
+  [['1','FRENO\\nDE MANO',300,0.5],['2','PATADA DE\\nEMBRAGUE',780,0.8]].forEach(([l,o,X,d])=>{const q=back((t-d)/0.35);if(q<=0)return;x.save();x.translate(X,1240);x.scale(q,q);x.rotate(l==='1'?-0.04:0.04);
     rr(-200,-100,400,200,30);x.fillStyle='#fff';x.fill();ink(8);x.beginPath();x.arc(-150,-90,42,0,7);x.fillStyle=YEL;x.fill();ink(7);
     x.fillStyle=INK;x.font='700 48px F';x.textAlign='center';x.textBaseline='middle';x.fillText(l,-150,-88);o.split('\\n').forEach((ln,i)=>{x.font='700 46px F';x.fillText(ln,10,-22+i*54)});x.restore()});
-  const c2=eo((t-1.2)/0.4);x.globalAlpha=c2;txt('COMENTA A o B 👇'.replace(' 👇',''),540,1420,66,'#fff');x.globalAlpha=1;
+  const c2=eo((t-1.2)/0.4);x.globalAlpha=c2;txt('¿Cuál te da más miedo? Comenta',540,1420,58,'#fff');x.globalAlpha=1;
   const p=0.5+0.5*Math.sin(t*8);x.save();x.translate(540,1560);x.scale(1+0.06*p,1+0.06*p);rr(-260,-58,520,116,58);x.fillStyle='#fff';x.fill();ink(8);x.restore();txt('SÍGUEME →',540,1560,62,RED,'center',false);
   const e=eo((t-1.8)/0.4);x.globalAlpha=e;txt('(y para más errores financieros,',540,1680,42,'#fff');txt('sigue también)',540,1730,42,'#fff');x.globalAlpha=1;
   bubble('O Driftzilla\\nse pone triste',540,470,t,0.7);},
@@ -153,7 +153,7 @@ function wav(file, dur) {
   for (let i = 0; i < NF; i++) { await p.evaluate((t) => window.draw(t), i / FPS); await p.screenshot({ path: path.join(tmp, `f${String(i).padStart(5, '0')}.jpg`), type: 'jpeg', quality: 90 }); }
   await b.close(); if (errs.length) console.log('ERRORES', errs.slice(0, 3));
   const a = path.join(tmp, 'a.wav'); wav(a, TOTAL);
-  const dst = path.join(OUT, 'VIRAL_driftzilla-ep1_como-empezar_9x16_v4.mp4');
+  const dst = path.join(OUT, 'VIRAL_driftzilla-ep1_como-empezar_9x16_v5.mp4');
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-i', path.join(tmp, 'f%05d.jpg'), '-i', a, '-c:v', 'libx264', '-preset', 'slow', '-crf', '19', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', dst]);
   SC.forEach(([id], i) => fs.copyFileSync(path.join(tmp, `f${String(Math.round((START[i] + 1.8) * FPS)).padStart(5, '0')}.jpg`), path.join(OUT, `VIRAL_driftzilla-ep1_${String(i).padStart(2, '0')}-${id}.jpg`)));
   fs.rmSync(tmp, { recursive: true, force: true });
