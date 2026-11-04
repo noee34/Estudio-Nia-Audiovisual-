@@ -1,0 +1,266 @@
+[
+ {
+  "pieza": "principal",
+  "variante": "color-fondo-claro",
+  "svg": "svg/principal/ENEIA_principal_color-fondo-claro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "visor",
+  "variante": "color-fondo-claro",
+  "svg": "svg/visor/ENEIA_visor_color-fondo-claro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "secundario",
+  "variante": "color-fondo-claro",
+  "svg": "svg/secundario/ENEIA_secundario_color-fondo-claro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "isotipo",
+  "variante": "color-fondo-claro",
+  "svg": "svg/isotipo/ENEIA_isotipo_color-fondo-claro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "icono-reducido",
+  "variante": "color-fondo-claro",
+  "svg": "svg/icono-reducido/ENEIA_icono-reducido_color-fondo-claro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "horizontal",
+  "variante": "color-fondo-claro",
+  "svg": "svg/horizontal/ENEIA_horizontal_color-fondo-claro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "vertical",
+  "variante": "color-fondo-claro",
+  "svg": "svg/vertical/ENEIA_vertical_color-fondo-claro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "principal",
+  "variante": "color-fondo-oscuro",
+  "svg": "svg/principal/ENEIA_principal_color-fondo-oscuro_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "visor",
+  "variante": "color-fondo-oscuro",
+  "svg": "svg/visor/ENEIA_visor_color-fondo-oscuro_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "secundario",
+  "variante": "color-fondo-oscuro",
+  "svg": "svg/secundario/ENEIA_secundario_color-fondo-oscuro_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "isotipo",
+  "variante": "color-fondo-oscuro",
+  "svg": "svg/isotipo/ENEIA_isotipo_color-fondo-oscuro_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "icono-reducido",
+  "variante": "color-fondo-oscuro",
+  "svg": "svg/icono-reducido/ENEIA_icono-reducido_color-fondo-oscuro_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "horizontal",
+  "variante": "color-fondo-oscuro",
+  "svg": "svg/horizontal/ENEIA_horizontal_color-fondo-oscuro_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "vertical",
+  "variante": "color-fondo-oscuro",
+  "svg": "svg/vertical/ENEIA_vertical_color-fondo-oscuro_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "principal",
+  "variante": "positivo",
+  "svg": "svg/principal/ENEIA_principal_positivo_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "visor",
+  "variante": "positivo",
+  "svg": "svg/visor/ENEIA_visor_positivo_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "secundario",
+  "variante": "positivo",
+  "svg": "svg/secundario/ENEIA_secundario_positivo_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "isotipo",
+  "variante": "positivo",
+  "svg": "svg/isotipo/ENEIA_isotipo_positivo_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "icono-reducido",
+  "variante": "positivo",
+  "svg": "svg/icono-reducido/ENEIA_icono-reducido_positivo_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "horizontal",
+  "variante": "positivo",
+  "svg": "svg/horizontal/ENEIA_horizontal_positivo_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "vertical",
+  "variante": "positivo",
+  "svg": "svg/vertical/ENEIA_vertical_positivo_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "principal",
+  "variante": "negativo",
+  "svg": "svg/principal/ENEIA_principal_negativo_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "visor",
+  "variante": "negativo",
+  "svg": "svg/visor/ENEIA_visor_negativo_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "secundario",
+  "variante": "negativo",
+  "svg": "svg/secundario/ENEIA_secundario_negativo_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "isotipo",
+  "variante": "negativo",
+  "svg": "svg/isotipo/ENEIA_isotipo_negativo_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "icono-reducido",
+  "variante": "negativo",
+  "svg": "svg/icono-reducido/ENEIA_icono-reducido_negativo_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "horizontal",
+  "variante": "negativo",
+  "svg": "svg/horizontal/ENEIA_horizontal_negativo_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "vertical",
+  "variante": "negativo",
+  "svg": "svg/vertical/ENEIA_vertical_negativo_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "principal",
+  "variante": "mono-negro",
+  "svg": "svg/principal/ENEIA_principal_mono-negro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "visor",
+  "variante": "mono-negro",
+  "svg": "svg/visor/ENEIA_visor_mono-negro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "secundario",
+  "variante": "mono-negro",
+  "svg": "svg/secundario/ENEIA_secundario_mono-negro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "isotipo",
+  "variante": "mono-negro",
+  "svg": "svg/isotipo/ENEIA_isotipo_mono-negro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "icono-reducido",
+  "variante": "mono-negro",
+  "svg": "svg/icono-reducido/ENEIA_icono-reducido_mono-negro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "horizontal",
+  "variante": "mono-negro",
+  "svg": "svg/horizontal/ENEIA_horizontal_mono-negro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "vertical",
+  "variante": "mono-negro",
+  "svg": "svg/vertical/ENEIA_vertical_mono-negro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "principal",
+  "variante": "mono-blanco",
+  "svg": "svg/principal/ENEIA_principal_mono-blanco_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "visor",
+  "variante": "mono-blanco",
+  "svg": "svg/visor/ENEIA_visor_mono-blanco_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "secundario",
+  "variante": "mono-blanco",
+  "svg": "svg/secundario/ENEIA_secundario_mono-blanco_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "isotipo",
+  "variante": "mono-blanco",
+  "svg": "svg/isotipo/ENEIA_isotipo_mono-blanco_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "icono-reducido",
+  "variante": "mono-blanco",
+  "svg": "svg/icono-reducido/ENEIA_icono-reducido_mono-blanco_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "horizontal",
+  "variante": "mono-blanco",
+  "svg": "svg/horizontal/ENEIA_horizontal_mono-blanco_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "vertical",
+  "variante": "mono-blanco",
+  "svg": "svg/vertical/ENEIA_vertical_mono-blanco_v1.svg",
+  "oscuro": true
+ },
+ {
+  "pieza": "redes",
+  "variante": "avatar-redes",
+  "svg": "svg/redes/ENEIA_avatar-redes_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "redes",
+  "variante": "favicon",
+  "svg": "svg/redes/ENEIA_favicon_v1.svg",
+  "oscuro": false
+ }
+]

@@ -1,0 +1,5 @@
+herramientas/.build/
+MARCA/07_MOCKUPS/.tmp.html
+__pycache__/
+node_modules/
+.DS_Store

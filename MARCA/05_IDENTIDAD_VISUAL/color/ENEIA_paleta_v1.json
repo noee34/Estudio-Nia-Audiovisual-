@@ -1,0 +1,149 @@
+[
+ {
+  "id": "noite",
+  "nombre": "Noite Atlántica",
+  "hex": "#0E1A20",
+  "rgb": [
+   14,
+   26,
+   32
+  ],
+  "cmyk_aprox": [
+   56,
+   19,
+   0,
+   87
+  ],
+  "rol": "Principal",
+  "uso": "Fondos, texto, logotipo. El 60 % de cualquier pieza.",
+  "contraste_con_noite": 1.0,
+  "contraste_con_neboa": 15.41,
+  "pantone": "Pendiente de casar con guía física Pantone Formula Guide (ver manual)"
+ },
+ {
+  "id": "neboa",
+  "nombre": "Néboa",
+  "hex": "#EEF0EB",
+  "rgb": [
+   238,
+   240,
+   235
+  ],
+  "cmyk_aprox": [
+   1,
+   0,
+   2,
+   6
+  ],
+  "rol": "Principal claro",
+  "uso": "Fondos claros y texto sobre oscuro. Sustituye al blanco puro.",
+  "contraste_con_noite": 15.41,
+  "contraste_con_neboa": 1.0,
+  "pantone": "Pendiente de casar con guía física Pantone Formula Guide (ver manual)"
+ },
+ {
+  "id": "rec",
+  "nombre": "Vermello REC",
+  "hex": "#E4412B",
+  "rgb": [
+   228,
+   65,
+   43
+  ],
+  "cmyk_aprox": [
+   0,
+   71,
+   81,
+   11
+  ],
+  "rol": "Acento",
+  "uso": "Solo el punto REC y una llamada a la acción por pieza. Máx. 5 % de la superficie.",
+  "contraste_con_noite": 4.29,
+  "contraste_con_neboa": 3.6,
+  "pantone": "Pendiente de casar con guía física Pantone Formula Guide (ver manual)"
+ },
+ {
+  "id": "mar",
+  "nombre": "Mar de Fóra",
+  "hex": "#2E5B60",
+  "rgb": [
+   46,
+   91,
+   96
+  ],
+  "cmyk_aprox": [
+   52,
+   5,
+   0,
+   62
+  ],
+  "rol": "Secundario",
+  "uso": "Bloques de apoyo, gráficos, fondos de sección.",
+  "contraste_con_noite": 2.34,
+  "contraste_con_neboa": 6.58,
+  "pantone": "Pendiente de casar con guía física Pantone Formula Guide (ver manual)"
+ },
+ {
+  "id": "pedra",
+  "nombre": "Pedra",
+  "hex": "#8B908C",
+  "rgb": [
+   139,
+   144,
+   140
+  ],
+  "cmyk_aprox": [
+   3,
+   0,
+   3,
+   44
+  ],
+  "rol": "Neutro medio",
+  "uso": "Textos secundarios, líneas, metadatos de visor.",
+  "contraste_con_noite": 5.45,
+  "contraste_con_neboa": 2.83,
+  "pantone": "Pendiente de casar con guía física Pantone Formula Guide (ver manual)"
+ },
+ {
+  "id": "area",
+  "nombre": "Area",
+  "hex": "#D3C6AE",
+  "rgb": [
+   211,
+   198,
+   174
+  ],
+  "cmyk_aprox": [
+   0,
+   6,
+   18,
+   17
+  ],
+  "rol": "Cálido de apoyo",
+  "uso": "Papelería, fondos cálidos, fotografía en interiores.",
+  "contraste_con_noite": 10.49,
+  "contraste_con_neboa": 1.47,
+  "pantone": "Pendiente de casar con guía física Pantone Formula Guide (ver manual)"
+ },
+ {
+  "id": "lousa",
+  "nombre": "Lousa",
+  "hex": "#1E2C33",
+  "rgb": [
+   30,
+   44,
+   51
+  ],
+  "cmyk_aprox": [
+   41,
+   14,
+   0,
+   80
+  ],
+  "rol": "Neutro oscuro",
+  "uso": "Superficies sobre Noite (tarjetas, paneles web).",
+  "contraste_con_noite": 1.23,
+  "contraste_con_neboa": 12.51,
+  "pantone": "Pendiente de casar con guía física Pantone Formula Guide (ver manual)"
+ }
+]
