@@ -33,7 +33,7 @@ const manifest = JSON.parse(fs.readFileSync(path.join(OUT, 'manifest.json'), 'ut
     await page.pdf({ path: path.join(OUT, 'pdf', dir, base + '.pdf'), width: `${pw}px`, height: `${ph}px`, printBackground: item.oscuro, pageRanges: '1' });
   }
   // Favicons e iconos de app a partir del avatar
-  const avatar0 = fs.readFileSync(path.join(OUT, 'svg/redes/ENEIA_avatar-redes_v1.svg'), 'utf8');
+  const avatar0 = fs.readFileSync(path.join(OUT, 'svg/redes/ENEIA_avatar-redes-sin-frase_v1.svg'), 'utf8');
   const fav = fs.readFileSync(path.join(OUT, 'svg/redes/ENEIA_favicon_v1.svg'), 'utf8');
   fs.mkdirSync(path.join(OUT, 'png/favicon'), { recursive: true });
   for (const n of [16, 32, 48, 180, 192, 512]) {

@@ -193,20 +193,24 @@ def L_S(s, w=54.0):
     lo = [(cx + rx * math.cos(math.radians(a)), c2 + ry * math.sin(math.radians(a))) for a in [-90 + i * (250 / 90) for i in range(91)]]
     return LineString(up + lo).buffer(s / 2, cap_style="flat", join_style="round", resolution=24), w
 
-def iso(ink, dot, x0, y0, s=100.0, small=False):
-    """Isotipo «ES»: E y S de Eneia Estudio dentro del visor, con el punto REC. Para perfiles, app y favicon."""
+def iso(ink, dot, x0, y0, s=100.0, small=False, only_core=False, es=None):
+    """Isotipo «ES»: E y S de Eneia Estudio dentro del visor, con el punto REC. Para perfiles, app y favicon.
+    es = altura de las letras respecto al lado del visor (por defecto 0,52)."""
     t = s * (0.07 if not small else 0.095); L = s * (0.30 if not small else 0.32)
     st = 12.5 if not small else 17.0
     e, we = L_E(st, w=50.0); sg, ws = L_S(st)
     gap = 16.0 if not small else 13.0
     g = unary_union([e, translate(sg, we + gap, 0)]); W = we + gap + ws
-    k = s * (0.52 if not small else 0.60) / 100.0 * (100.0 / H)
+    k = s * (es or (0.52 if not small else 0.60)) / 100.0 * (100.0 / H)
     g = sscale(g, k, k, origin=(0, 0)); W *= k; Hh = H * k
     ox = x0 + (s - W) / 2 - s * 0.025; oy = y0 + (s - Hh) / 2
     g = translate(g, ox, oy)
     r = s * (0.038 if not small else 0.05)
-    return (P(corners(x0, y0, s, s, L, t), ink) + P(d_of(g), ink) +
-            f'<circle cx="{ox + W + r + s * 0.012:.2f}" cy="{oy + r * 0.95:.2f}" r="{r:.2f}" fill="{dot}"/>')
+    core = P(d_of(g), ink) + f'<circle cx="{ox + W + r + s * 0.012:.2f}" cy="{oy + r * 0.95:.2f}" r="{r:.2f}" fill="{dot}"/>'
+    return core if only_core else P(corners(x0, y0, s, s, L, t), ink) + core
+
+def iso_core(ink, dot, x0, y0, s=100.0, es=None):
+    return iso(ink, dot, x0, y0, s, only_core=True, es=es)
 
 def build(ink, dot, bg=None):
     out = {}
@@ -242,10 +246,18 @@ VARIANTES = {
     "mono-blanco":        (C["blanco"], C["blanco"], None),
 }
 
-def avatar(claro=False):
-    side = 1080.0; s = 600.0
+def avatar(claro=False, frase=True):
+    """Foto de perfil: isotipo ES con «ESTUDIO AUDIOVISUAL» debajo, dentro del visor (segura para recorte circular)."""
+    side = 1080.0; s = 640.0
     ink, bg = (C["noite"], C["neboa"]) if claro else (C["neboa"], C["noite"])
-    return svg(side, side, iso(ink, C["rec"], (side - s) / 2, (side - s) / 2, s), bg)
+    x0 = y0 = (side - s) / 2
+    if not frase:
+        return svg(side, side, iso(ink, C["rec"], x0, y0, s), bg)
+    t = s * 0.07; L = s * 0.30
+    body = P(corners(x0, y0, s, s, L, t), ink) + f'<g transform="translate(0 {-s * 0.07:.1f})">{iso_core(ink, C["rec"], x0, y0, s, es=0.42)}</g>'
+    w = s * 0.66
+    body += P(descriptor_fit(w, s * 0.032, (side - w) / 2, y0 + s - s * 0.165), ink)
+    return svg(side, side, body, bg)
 
 def favicon():
     side = 200.0; s = 136.0
@@ -261,7 +273,9 @@ def main():
             manifest.append({"pieza": name, "variante": var, "svg": f"svg/{name}/{fn}",
                              "oscuro": var in ("color-fondo-oscuro", "negativo", "mono-blanco")})
     os.makedirs(os.path.join(OUT, "svg", "redes"), exist_ok=True)
-    for fn, sv in [("ENEIA_avatar-redes_v1.svg", avatar()), ("ENEIA_avatar-redes-claro_v1.svg", avatar(True)), ("ENEIA_favicon_v1.svg", favicon())]:
+    for fn, sv in [("ENEIA_avatar-redes_v1.svg", avatar()), ("ENEIA_avatar-redes-claro_v1.svg", avatar(True)),
+                   ("ENEIA_avatar-redes-sin-frase_v1.svg", avatar(False, False)), ("ENEIA_avatar-redes-claro-sin-frase_v1.svg", avatar(True, False)),
+                   ("ENEIA_favicon_v1.svg", favicon())]:
         open(os.path.join(OUT, "svg", "redes", fn), "w").write(sv)
         manifest.append({"pieza": "redes", "variante": fn.split("_")[1], "svg": f"svg/redes/{fn}", "oscuro": False})
     # icono de app (iOS/Android): cuadrado a sangre, sin esquinas redondeadas (las aplica el sistema)

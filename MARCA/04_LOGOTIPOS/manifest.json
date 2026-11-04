@@ -265,6 +265,18 @@
  },
  {
   "pieza": "redes",
+  "variante": "avatar-redes-sin-frase",
+  "svg": "svg/redes/ENEIA_avatar-redes-sin-frase_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "redes",
+  "variante": "avatar-redes-claro-sin-frase",
+  "svg": "svg/redes/ENEIA_avatar-redes-claro-sin-frase_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "redes",
   "variante": "favicon",
   "svg": "svg/redes/ENEIA_favicon_v1.svg",
   "oscuro": false
