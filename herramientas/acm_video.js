@@ -51,6 +51,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
 #logo{width:${(v ? 880 : 900) * u}px}
 .pill{display:inline-block;background:#E1262D;color:#fff;font:800 ${34 * u}px SI;letter-spacing:.06em;padding:${16 * u}px ${42 * u}px;transform:skewX(-12deg)}
 #fade{position:absolute;inset:0;background:#000;opacity:0}
+.ig{margin-top:${(v ? 44 : 28) * u}px;font:700 ${(v ? 40 : 34) * u}px S;letter-spacing:.08em;color:#fff}
 .bar{position:absolute;left:0;right:0;height:${v ? 140 * u : 0}px;background:#000}
 #dyno{position:absolute;inset:0;opacity:0;background:#000}
 #dimg{position:absolute;left:0;top:0;width:${v ? W : 1000 * u}px;height:${v ? 1100 * u : H}px;object-fit:cover}
@@ -88,7 +89,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
  <div class="sub" id="t3" style="margin-top:${(v ? 70 : 40) * u}px">Reprogramación de centralitas</div></div>
 <div class="c mid" id="t4"></div>
 <div class="c big" id="t5">Siente la<br><span class="red">diferencia.</span></div>
-<div class="c" id="endw" style="text-align:center"><img id="logo" src="${LOGO}"><div class="sub" id="t6" style="margin-top:${(v ? 60 : 40) * u}px">Reprogramación de centralitas</div><div id="t7" style="margin-top:${(v ? 70 : 40) * u}px"><span class="pill">PIDE TU CITA</span></div></div>
+<div class="c" id="endw" style="text-align:center"><img id="logo" src="${LOGO}"><div class="sub" id="t6" style="margin-top:${(v ? 60 : 40) * u}px">Reprogramación de centralitas</div><div id="t7" style="margin-top:${(v ? 70 : 40) * u}px"><span class="pill">PIDE TU CITA</span><div class="ig">@acm_performance</div></div></div>
 <div id="dyno"><img id="dimg"><div id="dtag">BANCO DE POTENCIA</div><div id="drpm">0 RPM</div>
  <div id="dpan"><div class="dl">BMW 330d E92 · <b>ACM STAGE 1</b></div>
   <div class="dro"><div class="r">POTENCIA MÁX.<b id="dcv">0 CV</b></div><div>PAR MÁX.<b id="dnm">0 Nm</b></div></div>
@@ -209,7 +210,7 @@ async function renderDyno(W, H) { // fotogramas del banco 3D (servidor local par
   fs.mkdirSync(path.join(P, 'video'), { recursive: true }); fs.mkdirSync(TMP, { recursive: true });
   if (fs.existsSync(CLIP)) { clipDyno(1080, 1920); clipDyno(1920, 1080); } else { await renderDyno(1080, 1920); await renderDyno(1920, 1080); }
   const b = await chromium.launch();
-  for (const [W, H, name] of [[1080, 1920, 'ACM_anuncio-reprogramacion_9x16_v5.mp4'], [1920, 1080, 'ACM_anuncio-reprogramacion_16x9_v5.mp4']]) {
+  for (const [W, H, name] of [[1080, 1920, 'ACM_anuncio-reprogramacion_9x16_v6.mp4'], [1920, 1080, 'ACM_anuncio-reprogramacion_16x9_v6.mp4']]) {
     const tmp = fs.mkdtempSync(path.join(TMP, 'acm-'));
     fs.writeFileSync(path.join(tmp, 'p.html'), page(W, H));
     const p = await b.newPage({ viewport: { width: W, height: H } });
