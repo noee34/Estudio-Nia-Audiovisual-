@@ -46,7 +46,7 @@ const frame = (n, dot = true) => `<i class="c c1"></i><i class="c c2"></i><i cla
 const slides = [
   ['dk', `<div class="mid"><div class="eb">Galicia · Estudio audiovisual</div><h1>Vuestra empresa hace cosas extraordinarias.</h1><p class="it" style="font:400 italic 58px/1.15 ISi;opacity:1;margin-top:48px">¿Vuestro vídeo lo cuenta?</p></div><div class="swipe">DESLIZA →</div>`],
   ['dk', `<div class="mid"><div class="eb">El problema</div><h2>Dron. Música épica. Nave industrial. Logotipo.</h2><p>El mismo vídeo para cien empresas distintas. Bonito, caro… e intercambiable.</p></div>`],
-  ['lt', `<div class="mid"><div class="eb">Quiénes somos</div><h1>Somos <span class="red">Eneia</span>.</h1><p>Eneia es como suena <b>«N&nbsp;y&nbsp;A»</b>: dos socias, dos miradas. En cada proyecto, una dirige la historia y la otra, la imagen.</p></div>`],
+  ['lt', `<div class="mid"><div class="eb">Quiénes somos</div><h1>Somos <span class="red">Eneia</span>.</h1><p>Eneia es como suena <b>«N&nbsp;y&nbsp;A»</b>: Noe y Adán. Y dentro guarda el nombre de nuestra hija, <b>Nia</b>. Un estudio familiar, dos miradas en cada proyecto.</p></div>`],
   ['dk', `<div class="mid"><div class="eb">Lo que hacemos</div><h2>Mirada de cine.<br><span class="it">Oficio de empresa.</span></h2><p>Vídeo corporativo, documental de marca y publicidad con la verdad del cine documental: vuestra gente, vuestra voz, vuestro oficio.</p></div>`],
   ['dk', `<div class="mid"><div class="eb">Método Eneia</div><h2 style="font-size:88px">Primero escuchamos. Después encuadramos.</h2><ul class="list">
      <li><b>01</b><span>Escoitar</span></li><li><b>02</b><span>Guion</span></li><li><b>03</b><span>Rodaxe</span></li><li><b>04</b><span>Vida útil</span></li></ul></div>`],
@@ -59,7 +59,7 @@ const slides = [
 
 const CAPTION = `Vuestra empresa hace cosas extraordinarias. ¿Vuestro vídeo lo cuenta? 🎬
 
-Somos Eneia: un estudio audiovisual de Galicia formado por dos socias y dos miradas. Hacemos vídeo corporativo, documental de marca y publicidad con la verdad del cine documental. Con vuestra gente, vuestra voz y vuestro oficio.
+Somos Eneia: un estudio audiovisual familiar de Galicia. Somos Noe y Adán, y Eneia une nuestras iniciales con el nombre de nuestra hija, Nia. Hacemos vídeo corporativo, documental de marca y publicidad con la verdad del cine documental. Con vuestra gente, vuestra voz y vuestro oficio.
 
 Sin bancos de imágenes. Sin épica de alquiler. Con precio claro desde el primer día.
 

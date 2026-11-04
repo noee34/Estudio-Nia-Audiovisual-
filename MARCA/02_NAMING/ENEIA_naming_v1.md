@@ -11,7 +11,8 @@
 | 5 | **Eneia Estudio** | **Elegido.** |
 
 ## 2. Por qué Eneia
-- **Es como suena «N y A»** («ene-i-a»): las iniciales de las dos socias convertidas en una palabra.
+- **Es como suena «N y A»** («ene-i-a»): las iniciales de **Noe y Adán**, los fundadores, convertidas en una palabra.
+- **Guarda dentro a Nia**, su hija: las letras N, I y A forman parte de ENEIA. La marca es la unión de la familia. *Nota:* el relato puede contarse en textos y redes, pero en el logotipo no se destacan esas letras, para evitar confusiones con la marca NIA registrada.
 - **Evoca la *Eneida*** y a Eneas (*Eneias* en portugués), el gran relato de viaje de la tradición clásica. Encaja con un estudio que cuenta historias.
 - **Es breve, eufónico** y se pronuncia igual en castellano y en gallego. **Acento recomendado:** e-**NÉI**-a.
 - **Se distancia de la marca NIA:** E-N-E-I-A no contiene la secuencia «NIA» y tiene una sílaba más.

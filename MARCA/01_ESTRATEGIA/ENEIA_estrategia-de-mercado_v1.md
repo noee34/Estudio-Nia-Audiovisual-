@@ -4,7 +4,7 @@
 > Convención: **[C]** dato comprobado con fuente · **[H]** hipótesis pendiente de validar · **[R]** recomendación del equipo.
 
 ## 1. El encargo
-Eneia Estudio es un estudio audiovisual de dos socias con base en Galicia, especializado en **vídeo corporativo y publicidad**. Arranca sin cartera de clientes ni piezas publicadas y con presupuesto cero: hosting gratuito y dominios aplazados hasta validar el proyecto. La estrategia tiene que conseguir que el estudio parezca, desde el primer día, una casa con criterio y no una productora más.
+Eneia Estudio es un estudio audiovisual familiar, fundado por Noe y Adán, con base en Galicia, especializado en **vídeo corporativo y publicidad**. Arranca sin cartera de clientes ni piezas publicadas y con presupuesto cero: hosting gratuito y dominios aplazados hasta validar el proyecto. La estrategia tiene que conseguir que el estudio parezca, desde el primer día, una casa con criterio y no una productora más.
 
 ## 2. El sector en Galicia
 - **[C]** En 2023 Galicia contaba con más de 400 empresas activas en el sector audiovisual, según un informe del Clúster Audiovisual Galego elaborado con AGADIC y citado por la Xunta.
@@ -41,7 +41,7 @@ Eneia Estudio es un estudio audiovisual de dos socias con base en Galicia, espec
 - **Posicionamiento [R]:** *Para empresas gallegas con oficio que necesitan contar quiénes son con credibilidad, Eneia Estudio es el estudio audiovisual que aplica la mirada y el rigor del cine documental al vídeo de empresa, porque una historia real, bien filmada, convence más que un anuncio.*
 - **Diferenciación [R]:**
   1. **Método Eneia** en cuatro tiempos: *Escoitar · Guion · Rodaxe · Vida útil*.
-  2. **Dos miradas:** en cada proyecto, una socia dirige la historia y la otra la imagen. El nombre lo dice: Eneia = «N y A».
+  2. **Estudio familiar, dos miradas:** Noe y Adán firman cada proyecto. El nombre lo dice: Eneia = «N y A», y guarda dentro el nombre de su hija, Nia.
   3. **Kit de vida útil** incluido.
   4. **Bilingüismo natural** gallego-castellano, con versión en inglés para exportación.
 - **Mercados [R]:**

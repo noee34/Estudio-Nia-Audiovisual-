@@ -1,6 +1,9 @@
 # Plataforma de marca
 **Eneia Estudio · v1**
 
+## Relato de origen
+Eneia es como suena «N y A»: **Noe y Adán**, los fundadores. Dentro de la palabra vive además **Nia**, su hija. La marca es la unión de una familia, y por eso el estudio trabaja como trabaja: cada proyecto lo cuidan los dos, como quien hace las cosas para los suyos.
+
 ## Propósito
 Que las empresas gallegas con oficio se vean, y se cuenten, tan bien como trabajan.
 
@@ -19,7 +22,7 @@ Cada valor va con su prueba, es decir, con algo que hacemos para que no se quede
 | **Oficio** | Respetamos el oficio del cliente y el nuestro. | Una sesión de guion antes de cada rodaje. |
 | **Claridad** | Precios, plazos y entregables explícitos. | Formatos cerrados con precio «desde». |
 | **Durabilidad** | Una pieza tiene que servir durante años. | Kit de vida útil incluido. |
-| **Dos miradas** | Cada proyecto lo firman las dos socias. | Una dirige la historia y la otra la imagen. |
+| **Familia** | Trabajamos para cada cliente como para los nuestros. | Noe y Adán firman y supervisan cada proyecto. |
 
 ## Personalidad
 Serena, precisa, cálida y exigente. Si Eneia fuera una persona, sería una directora de documental que escucha más de lo que habla, llega pronto al rodaje y sabe exactamente qué plano falta.

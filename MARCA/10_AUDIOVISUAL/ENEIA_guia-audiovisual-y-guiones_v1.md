@@ -30,16 +30,16 @@
 |---|---|---|---|---|
 | 1 | 0,0–2,8 | Visor de marca sobre Noite, REC encendido | «Hay empresas que hacen cosas extraordinarias.» | Drone grave, entra el pulso |
 | 2 | 2,8–5,6 | Ídem, cambia el código de tiempo | «Y vídeos que las hacen parecer todas iguales.» | Pulso |
-| 3 | 5,6–8,4 | Ídem | «Nosotras escuchamos primero.» | Pulso, se abre un armónico |
+| 3 | 5,6–8,4 | Ídem | «Primero, escuchamos.» | Pulso, se abre un armónico |
 | 4 | 8,4–11,2 | Ídem | «Filmamos a vuestra gente. Con su voz.» | Pulso |
 | 5 | 11,2–14,0 | Ídem | «Sin bancos de imágenes. Sin épica de alquiler.» | Pulso |
 | 6 | 14,0–16,8 | Ídem | «Mirada de cine. Oficio de empresa.» | Se apaga el pulso y queda el drone |
 | 7 | 16,8–20,0 | Logotipo principal | ENEIA · Estudio audiovisual · Galicia | Pitido REC y fundido |
 
-**Versión rodada (cuando haya material propio):** se mantiene el mismo texto como locución en *off* de una de las socias y cada frase se cubre con un plano real.
+**Versión rodada (cuando haya material propio):** se mantiene el mismo texto como locución en *off* de Noe o Adán y cada frase se cubre con un plano real.
 1. Manos de una rederia.
 2. Un *dron* genérico de polígono industrial, tachado por la cortinilla de encuadre.
-3. Una socia escuchando con un cuaderno.
+3. Noe o Adán escuchando con un cuaderno.
 4. Un primer plano de un operario hablando.
 5. Un plano de un banco de imágenes desenfocado que se corta a negro.
 6. Un contraluz atlántico en un puerto.
@@ -52,7 +52,7 @@
 | 2 | 3–6 | Plano medio: la operaria mira a cámara, aún sin hablar | *Push-in* lento | Off: «¿Qué hacéis exactamente?» |
 | 3 | 6–11 | Entrevista: «Llevo veintidós años aquí. Sé cuándo una lata está bien solo por el sonido.» | Fijo | Voz directa |
 | 4 | 11–15 | Plano general de la nave con luz lateral de los ventanales | Travelling lateral | Ambiente + piano |
-| 5 | 15–19 | Visor de marca sobrepuesto: REC encendido, la socia ajusta el foco | Fijo | Pitido REC |
+| 5 | 15–19 | Visor de marca sobrepuesto: REC encendido, Noe o Adán ajusta el foco | Fijo | Pitido REC |
 | 6 | 19–25 | Montaje de tres oficios (bodega, astillero, panadería) en 2 s cada uno | Cortes en la acción | Piano |
 | 7 | 25–30 | Cierre: «Contamos lo que hacéis.» + logotipo + eneiaestudio.com | Fijo | Fin de la música |
 

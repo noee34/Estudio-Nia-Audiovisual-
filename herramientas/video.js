@@ -16,7 +16,7 @@ const FPS = 25;
 const FRASES = [
   'Hay empresas que hacen cosas extraordinarias.',
   'Y vídeos que las hacen parecer todas iguales.',
-  'Nosotras escuchamos primero.',
+  'Primero, escuchamos.',
   'Filmamos a vuestra gente. Con su voz.',
   'Sin bancos de imágenes. Sin épica de alquiler.',
   'Mirada de cine. Oficio de empresa.',

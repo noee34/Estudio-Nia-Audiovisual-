@@ -21,7 +21,7 @@
 
 **Argumentos comerciales:**
 - Método en cuatro tiempos.
-- Dos directoras en cada proyecto.
+- Estudio familiar: Noe y Adán en cada proyecto.
 - Subtítulos en tres idiomas incluidos.
 - Entrega en 3 o 4 semanas desde el rodaje.
 - Una ronda de cambios incluida en el montaje.
@@ -31,7 +31,7 @@
 |---|---|---|
 | **Web** (hosting gratuito) | Escaparate, formatos y contacto | Siempre activa |
 | **Instagram** @eneiaestudio | Piezas, *making of*, serie «Punto REC» | 3 publicaciones y 4 historias por semana |
-| **LinkedIn** (página y perfiles de las socias) | Prospección B2B y casos | 2 publicaciones por semana por socia |
+| **LinkedIn** (página y perfiles de Noe y Adán) | Prospección B2B y casos | 2 publicaciones por semana por socia |
 | **Vimeo / YouTube** | Alojamiento de piezas en alta calidad | Con cada pieza |
 | **Ficha de empresa en Google** | Búsquedas locales («productora vídeo Vigo») | Alta en la primera semana |
 | **Asociaciones empresariales y clústeres** (CEAGA, Clúster Alimentario, Clúster do Turismo, CEG…) | Networking y presentaciones | 1 evento al mes |
@@ -41,7 +41,7 @@
 - **Punto REC** (40 %): el momento justo antes de grabar. Preparativos, decisiones de luz y entrevistas.
 - **Oficio** (30 %): fragmentos de trabajo real filmado (con autorización).
 - **Criterio** (20 %): consejos breves («3 errores en un vídeo de feria», «cómo preparar una entrevista»).
-- **Estudio** (10 %): las socias, Arya y el día a día.
+- **Estudio** (10 %): Noe, Adán, Arya y el día a día.
 
 **Formato base:** vertical 9:16, de 15 a 40 s, siempre con subtítulos y el encuadre de marca en la portada.
 
