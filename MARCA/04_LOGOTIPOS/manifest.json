@@ -259,8 +259,26 @@
  },
  {
   "pieza": "redes",
+  "variante": "avatar-redes-claro",
+  "svg": "svg/redes/ENEIA_avatar-redes-claro_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "redes",
   "variante": "favicon",
   "svg": "svg/redes/ENEIA_favicon_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "redes",
+  "variante": "icono-app",
+  "svg": "svg/redes/ENEIA_icono-app_v1.svg",
+  "oscuro": false
+ },
+ {
+  "pieza": "redes",
+  "variante": "icono-app-claro",
+  "svg": "svg/redes/ENEIA_icono-app-claro_v1.svg",
   "oscuro": false
  }
 ]

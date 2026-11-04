@@ -92,7 +92,8 @@ def manual():
 <div class="eb" style="margin-top:7mm">Personalidad · arquetipo</div><p>Serena, precisa, cálida y exigente. Arquetipo principal <b>Creador</b>; secundario <b>Sabio</b>.</p></div></div>""", sec="01 · Marca"))
     P.append(page(5, "Concepto creativo · Encuadre REC", f"""<div class="c2"><div><p class="lead">El nombre se compone dentro de las marcas de encuadre del visor de cámara. Un único punto rojo —REC— indica que la historia ya está rodando.</p>
 <p>Las letras están dibujadas a medida sobre una retícula geométrica de trazo uniforme: rectas, sin remates, con interletraje amplio de títulos de crédito. El descriptor <span class="mono">Estudio audiovisual</span> vive dentro del encuadre: lo que hacemos forma parte del plano.</p>
-<p class="small">Se exploraron tres conceptos (Plano/Contraplano, Cabezal de autor y Encuadre REC). La propiedad eligió Encuadre REC con el descriptor dentro del encuadre.</p></div>
+<p><b>Isotipo ES.</b> Para formatos pequeños y cuadrados —foto de perfil, icono de app, favicon— la marca se condensa en las iniciales de <i>Eneia Estudio</i>: una E recta y una S de dos bucles dentro del visor, con el punto REC. Versión negativa (preferente) y clara.</p>
+<p class="small">Se exploraron tres conceptos (Plano/Contraplano, Cabezal de autor y Encuadre REC). La propiedad eligió Encuadre REC con el descriptor dentro del encuadre y el isotipo ES con S curva.</p></div>
 <div><img src="{U('04_LOGOTIPOS/conceptos/ENEIA_conceptos-logotipo_v1.png')}" style="width:100%"></div></div>""", sec="02 · Logotipo"))
     P.append(page(6, "", f"""<div style="display:grid;place-items:center;height:150mm"><div style="width:190mm">{cl('principal/ENEIA_principal_color-fondo-claro_v1.svg')}</div></div>
 <p class="cap">Logotipo principal · versión preferente sobre Néboa</p>""", sec="02 · Logotipo"))
@@ -103,10 +104,10 @@ def manual():
 <p>Alrededor del marco se respeta un espacio libre de <b>media x</b> (la mitad de la altura de ENEIA). Ningún texto, imagen o borde puede invadirlo.</p></div>
 <div><table class="tb"><tr><th>Versión</th><th>Impresión</th><th>Pantalla</th></tr>
 <tr><td>Principal (con encuadre)</td><td>35 mm de ancho</td><td>160 px</td></tr><tr><td>Secundario (sin encuadre)</td><td>22 mm</td><td>96 px</td></tr>
-<tr><td>Horizontal</td><td>30 mm</td><td>130 px</td></tr><tr><td>Isotipo</td><td>8 mm</td><td>32 px</td></tr><tr><td>Icono reducido / favicon</td><td>—</td><td>16–31 px</td></tr></table>
-<p class="small">Por debajo del mínimo de la versión principal, usar la secundaria; por debajo de 32 px, el icono reducido (marco y punto engrosados).</p></div></div>""", sec="02 · Logotipo"))
+<tr><td>Horizontal</td><td>30 mm</td><td>130 px</td></tr><tr><td>Isotipo ES</td><td>10 mm</td><td>40 px</td></tr><tr><td>Icono reducido / favicon</td><td>—</td><td>16–31 px</td></tr></table>
+<p class="small">Por debajo del mínimo de la versión principal, usar la secundaria. El isotipo ES (E y S de Eneia Estudio dentro del visor) se reserva para fotos de perfil, icono de app y favicon; por debajo de 40 px, usar el icono reducido (trazos engrosados).</p></div></div>""", sec="02 · Logotipo"))
     vers = [("principal", "Principal · con encuadre y descriptor"), ("secundario", "Secundario · sin encuadre"), ("horizontal", "Imagotipo horizontal"),
-            ("vertical", "Imagotipo vertical"), ("isotipo", "Isotipo · visor + REC"), ("visor", "Visor · solo vídeo, redes y making of")]
+            ("vertical", "Imagotipo vertical"), ("isotipo", "Isotipo ES · perfiles, app y favicon"), ("visor", "Visor · solo vídeo, redes y making of")]
     P.append(page(9, "Sistema de versiones", '<div class="g3">' + "".join(f'<figure><div class="lg">{cl(f"{k}/ENEIA_{k}_color-fondo-claro_v1.svg")}</div><figcaption>{t}</figcaption></figure>' for k, t in vers[:5]) +
                   f'<figure><div class="lg" style="background:#0E1A20">{cl("visor/ENEIA_visor_color-fondo-oscuro_v1.svg")}</div><figcaption>{vers[5][1]}</figcaption></figure></div>', sec="02 · Logotipo"))
     cv = [("color-fondo-claro", "#EEF0EB", "Color · fondos claros"), ("color-fondo-oscuro", "#0E1A20", "Color · fondos oscuros"), ("positivo", "#FFFFFF", "Positivo · una tinta"),

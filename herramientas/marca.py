@@ -2,7 +2,8 @@
 
 Concepto definitivo «Encuadre REC»: el nombre, dibujado a medida, se compone dentro de
 las marcas de encuadre del visor de cámara; el punto rojo de grabación indica que la
-historia ya está rodando. El isotipo es el visor con el punto REC.
+historia ya está rodando. El isotipo «ES» (Eneia Estudio) dentro del visor, con el punto
+REC, se usa en perfiles de redes, icono de app y favicon.
 
 Uso:  python3 herramientas/marca.py
 """
@@ -183,10 +184,29 @@ def lockup(ink, dot, x0, y0, cap=100.0, frame=True, visor=False, show_dot=True):
         w4 = lab("00:00:00:01", 0, 0)[1]; body += P(lab("00:00:00:01", x0 + W - ins - w4, bot)[0], ink)
     return body, W, Hh
 
+def L_S(s, w=54.0):
+    """S geométrica de dos bucles elípticos, trazo uniforme."""
+    import math
+    rx, ry = (w - s) / 2, (H - s) / 4
+    cx, c1, c2 = w / 2, s / 2 + ry, H - s / 2 - ry
+    up = [(cx + rx * math.cos(math.radians(a)), c1 + ry * math.sin(math.radians(a))) for a in [-20 - i * (250 / 90) for i in range(91)]]
+    lo = [(cx + rx * math.cos(math.radians(a)), c2 + ry * math.sin(math.radians(a))) for a in [-90 + i * (250 / 90) for i in range(91)]]
+    return LineString(up + lo).buffer(s / 2, cap_style="flat", join_style="round", resolution=24), w
+
 def iso(ink, dot, x0, y0, s=100.0, small=False):
-    t = s * (0.07 if not small else 0.10); L = s * (0.30 if not small else 0.34)
-    r = s * (0.15 if not small else 0.19)
-    return P(corners(x0, y0, s, s, L, t), ink) + f'<circle cx="{x0 + s / 2:.2f}" cy="{y0 + s / 2:.2f}" r="{r:.2f}" fill="{dot}"/>'
+    """Isotipo «ES»: E y S de Eneia Estudio dentro del visor, con el punto REC. Para perfiles, app y favicon."""
+    t = s * (0.07 if not small else 0.095); L = s * (0.30 if not small else 0.32)
+    st = 12.5 if not small else 17.0
+    e, we = L_E(st, w=50.0); sg, ws = L_S(st)
+    gap = 16.0 if not small else 13.0
+    g = unary_union([e, translate(sg, we + gap, 0)]); W = we + gap + ws
+    k = s * (0.52 if not small else 0.60) / 100.0 * (100.0 / H)
+    g = sscale(g, k, k, origin=(0, 0)); W *= k; Hh = H * k
+    ox = x0 + (s - W) / 2 - s * 0.025; oy = y0 + (s - Hh) / 2
+    g = translate(g, ox, oy)
+    r = s * (0.038 if not small else 0.05)
+    return (P(corners(x0, y0, s, s, L, t), ink) + P(d_of(g), ink) +
+            f'<circle cx="{ox + W + r + s * 0.012:.2f}" cy="{oy + r * 0.95:.2f}" r="{r:.2f}" fill="{dot}"/>')
 
 def build(ink, dot, bg=None):
     out = {}
@@ -222,9 +242,10 @@ VARIANTES = {
     "mono-blanco":        (C["blanco"], C["blanco"], None),
 }
 
-def avatar():
-    side = 1080.0; s = 560.0
-    return svg(side, side, iso(C["neboa"], C["rec"], (side - s) / 2, (side - s) / 2, s), C["noite"])
+def avatar(claro=False):
+    side = 1080.0; s = 600.0
+    ink, bg = (C["noite"], C["neboa"]) if claro else (C["neboa"], C["noite"])
+    return svg(side, side, iso(ink, C["rec"], (side - s) / 2, (side - s) / 2, s), bg)
 
 def favicon():
     side = 200.0; s = 136.0
@@ -240,8 +261,13 @@ def main():
             manifest.append({"pieza": name, "variante": var, "svg": f"svg/{name}/{fn}",
                              "oscuro": var in ("color-fondo-oscuro", "negativo", "mono-blanco")})
     os.makedirs(os.path.join(OUT, "svg", "redes"), exist_ok=True)
-    for fn, sv in [("ENEIA_avatar-redes_v1.svg", avatar()), ("ENEIA_favicon_v1.svg", favicon())]:
+    for fn, sv in [("ENEIA_avatar-redes_v1.svg", avatar()), ("ENEIA_avatar-redes-claro_v1.svg", avatar(True)), ("ENEIA_favicon_v1.svg", favicon())]:
         open(os.path.join(OUT, "svg", "redes", fn), "w").write(sv)
+        manifest.append({"pieza": "redes", "variante": fn.split("_")[1], "svg": f"svg/redes/{fn}", "oscuro": False})
+    # icono de app (iOS/Android): cuadrado a sangre, sin esquinas redondeadas (las aplica el sistema)
+    for fn, claro in [("ENEIA_icono-app_v1.svg", False), ("ENEIA_icono-app-claro_v1.svg", True)]:
+        ink, bg = (C["noite"], C["neboa"]) if claro else (C["neboa"], C["noite"])
+        open(os.path.join(OUT, "svg", "redes", fn), "w").write(svg(1024, 1024, iso(ink, C["rec"], 232, 232, 560), bg))
         manifest.append({"pieza": "redes", "variante": fn.split("_")[1], "svg": f"svg/redes/{fn}", "oscuro": False})
     json.dump(manifest, open(os.path.join(OUT, "manifest.json"), "w"), indent=1, ensure_ascii=False)
     print(len(manifest), "SVG")
