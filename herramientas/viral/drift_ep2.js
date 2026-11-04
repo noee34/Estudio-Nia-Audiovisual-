@@ -61,9 +61,9 @@ const S={
  intro(t){bg(TEAL,t);const k=back(t/0.6);
   x.save();x.translate(540,230);x.scale(k,k);pill('PARTE 2',0,0,RED);x.restore();
   txt('FRENO DE MANO',540,360,96,YEL,'center',true,-0.04*k);txt('Y PATADA',540,465,104,'#fff','center',true,-0.04*k);txt('DE EMBRAGUE',540,570,104,'#fff','center',true,-0.04*k);
-  txt('(votasteis los dos, indecisos)',540,665,48,INK,'center',false,0);
+  txt('(dos técnicas, cero excusas)',540,665,48,INK,'center',false,0);
   const cx=540+Math.sin(t*2.2)*150, ang=-0.9+Math.sin(t*4)*0.2;smoke(cx+60,1180,t,7,1.2);car(cx,1110,ang,1.15,RED,1,{rear:true});
-  bubble('¡Pues os explico\\nLOS DOS!',600,880,t,0.8);},
+  bubble('¡Hoy os explico\\nLOS DOS!',600,880,t,0.8);},
  p1(t){bg('#5b5f6a',t);header2('TÉCNICA 1','FRENO DE MANO',t);
   const T1=2.0,T2=2.8, v=230; // px/s
   const sd=(t<T1? t*v : T1*v+(t-T1)*v*0.95)-470;
@@ -173,7 +173,7 @@ function wav(file, dur) {
   for (let i = 0; i < NF; i++) { await p.evaluate((t) => window.draw(t), i / FPS); await p.screenshot({ path: path.join(tmp, `f${String(i).padStart(5, '0')}.jpg`), type: 'jpeg', quality: 90 }); }
   await b.close(); if (errs.length) console.log('ERRORES', errs.slice(0, 3));
   const a = path.join(tmp, 'a.wav'); wav(a, TOTAL);
-  const dst = path.join(OUT, 'VIRAL_driftzilla-ep2_freno-de-mano-y-patada_9x16_v1.mp4');
+  const dst = path.join(OUT, 'VIRAL_driftzilla-ep2_freno-de-mano-y-patada_9x16_v2.mp4');
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-i', path.join(tmp, 'f%05d.jpg'), '-i', a, '-c:v', 'libx264', '-preset', 'slow', '-crf', '19', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', dst]);
   SC.forEach(([id], i) => fs.copyFileSync(path.join(tmp, `f${String(Math.round((START[i] + 1.8) * FPS)).padStart(5, '0')}.jpg`), path.join(OUT, `VIRAL_driftzilla-ep2_${String(i).padStart(2, '0')}-${id}.jpg`)));
   fs.rmSync(tmp, { recursive: true, force: true });
