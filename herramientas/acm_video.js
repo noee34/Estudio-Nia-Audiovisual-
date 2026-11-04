@@ -146,7 +146,7 @@ window.base=(t)=>{
 // curvas del banco (ilustrativas): CV en función de las rpm
 const lerp=(pts,r)=>{for(let i=1;i<pts.length;i++){const[a,va]=pts[i-1],[b,vb]=pts[i];if(r<=b){const k=(r-a)/(b-a),e=k*k*(3-2*k);return va+(vb-va)*e}}return pts[pts.length-1][1]};
 const Ts=r=>lerp([[1000,230],[1750,520],[3000,520],[4000,426],[4600,345]],r);
-const Ta=r=>lerp([[1000,250],[2000,615],[2600,612],[4000,523],[4600,427]],r);
+const Ta=r=>lerp([[1000,250],[2000,615],[2600,612],[4000,521.5],[4600,427]],r);
 const Ps=r=>Ts(r)*r/7023;
 const Pa=r=>Ta(r)*r/7023;
 const X=r=>40+(r-1000)/4000*550, Y=p=>310-p/330*290;
