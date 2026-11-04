@@ -1,85 +1,74 @@
 # Estrategia de mercado
-**Eneia Estudio · Estudio audiovisual · v1 · noviembre 2026**
+**Eneia Estudio · Estudio audiovisual con IA · v2 · noviembre 2026**
 
-> Convención: **[C]** dato comprobado con fuente · **[H]** hipótesis pendiente de validar · **[R]** recomendación del equipo.
+> Convención: **[C]** dato comprobado con fuente · **[H]** hipótesis pendiente de validar · **[R]** recomendación.
 
 ## 1. El encargo
-Eneia Estudio es un estudio audiovisual familiar, fundado por Noe y Adán, con base en Galicia, especializado en **vídeo corporativo y publicidad**. Arranca sin cartera de clientes ni piezas publicadas y con presupuesto cero: hosting gratuito y dominios aplazados hasta validar el proyecto. La estrategia tiene que conseguir que el estudio parezca, desde el primer día, una casa con criterio y no una productora más.
+Eneia Estudio es un estudio audiovisual de Galicia, dirigido por su fundadora, Noe, que **crea fotos y vídeos publicitarios con inteligencia artificial** para que las empresas vendan más: fotos de producto y ambiente, spots para redes y anuncios, campañas y contenido mensual. Arranca sin cartera de clientes y con presupuesto cero (hosting gratuito y dominios aplazados hasta validar).
 
-## 2. El sector en Galicia
-- **[C]** En 2023 Galicia contaba con más de 400 empresas activas en el sector audiovisual, según un informe del Clúster Audiovisual Galego elaborado con AGADIC y citado por la Xunta.
-- **[C]** El directorio Páxinas Galegas recoge unas 250 fichas de «productoras audiovisuales» en Galicia.
-- **[C]** La Xunta mantiene líneas anuales de ayudas al audiovisual, con ocho convocatorias previstas en 2025. Están orientadas sobre todo a ficción y documental, no a vídeo de empresa.
-- **[C]** En los directorios aparecen productoras con la misma oferta que la nuestra, «vídeo corporativo, industrial, divulgativo, eventos y streaming»: Marma S. Coop. y Estudio 99 en A Coruña, Visualset en Lugo, Teltek Video Research en Vigo y Camaleón Cinema Services, entre otras.
-- **[C]** No hemos encontrado ninguna referencia de precios fiable y publicada para vídeo corporativo en Galicia.
+## 2. Contexto
+- **[C]** Galicia contaba en 2023 con más de 400 empresas audiovisuales activas (Clúster Audiovisual Galego / AGADIC, según la Xunta). La mayoría basa su oferta en rodaje: equipo, desplazamiento y jornadas.
+- **[C]** Según Wyzowl (*State of Video Marketing*, fuentes secundarias), el 89 % de las empresas usaba vídeo en marketing en 2025 y el 91 % en la edición siguiente. Son datos globales.
+- **[C]** Desde el **2 de agosto de 2026** es aplicable el **artículo 50 del Reglamento europeo de IA (AI Act)**. Quien difunde imagen, audio o vídeo generado o manipulado con IA que pueda parecer real (*deepfake*) debe revelarlo de forma clara. El marcado técnico de los proveedores no exime de esta obligación.
+- **[H]** La demanda de imagen para redes y comercio online crece más deprisa que el presupuesto de las pymes. Una pyme necesita imagen nueva cada semana, pero no puede pagar un rodaje cada mes.
+- **[H]** Las herramientas de IA generativa están al alcance de cualquiera, pero los resultados sin criterio se notan: manos deformes, textos ilegibles, producto alterado, estética «de IA». El valor está en la **dirección de arte y el control de calidad**, no en la herramienta.
 
-**Lectura [H]:** la oferta está fragmentada y se presenta casi siempre igual, como un catálogo técnico («dron, streaming, 4K»). Se compite por técnica y por precio, no por mirada.
+## 3. Problemas que resolvemos
+1. **Rodajes caros y lentos.** *Respuesta:* imagen con IA en días y a una fracción del coste.
+2. **Fotos de móvil y bancos de imágenes.** *Respuesta:* imagen exclusiva del producto real del cliente, en el escenario que necesita.
+3. **IA que parece IA.** *Respuesta:* dirección de arte de cine y retoque a mano. Ninguna pieza sale sin control de calidad.
+4. **Inseguridad legal.** *Respuesta:* licencias comerciales verificadas, etiquetado según el AI Act y nada de personas reales sin consentimiento.
 
-## 3. La demanda
-- **[C]** Según el informe *State of Video Marketing* de Wyzowl (consultado en fuentes secundarias), el 89 % de las empresas usaba vídeo en marketing en 2025 y el 91 % en la edición siguiente. Además, el 93 % de los profesionales de marketing considera que su retorno es positivo. Son datos globales y no se pueden extrapolar a Galicia sin matices.
-- **[H]** El tejido productivo gallego con más necesidad de relato es el de oficio y origen: industria y automoción, mar y conserva, vino, alimentación, construcción y turismo de calidad. Son empresas con un producto excelente y una comunicación audiovisual por debajo de su nivel real.
-- **[H]** El decisor típico es la gerencia o la dirección comercial o de marketing de una pyme. No compra «un vídeo»: compra no quedar mal ante clientes, distribuidores y ferias, y una pieza que le dure años.
-- **[H]** Hay tres disparadores habituales de compra: una feria o misión comercial internacional, un aniversario o relevo generacional, y el lanzamiento de un producto o de una nueva planta.
+## 4. Saturación visual (qué evitamos)
+- La estética «futurista de IA»: neones, cerebros, circuitos y robots.
+- Imágenes hiperbrillantes, «plásticas» y con simetrías imposibles.
+- Las mismas paletas *teal & orange* y los fondos degradados genéricos.
+- Promesas mágicas: «la IA lo hace todo» o «resultados garantizados».
 
-## 4. Problemas que resolvemos
-1. **Vídeos intercambiables:** dron, música épica de banco, plano de nave y logotipo final. *Respuesta:* método documental, con personas reales, sonido directo y un guion que sale de las entrevistas.
-2. **Presupuestos opacos:** el cliente no entiende qué está pagando. *Respuesta:* formatos cerrados con precio «desde», jornadas de rodaje y entregables explícitos.
-3. **Piezas que mueren en la web:** se graba una vez y no se reaprovecha. *Respuesta:* un **Kit de vida útil** incluido de serie, con cortes 9:16 y 1:1, subtítulos en castellano, gallego e inglés y fotogramas.
-4. **Proveedor sin criterio:** el estudio ejecuta lo que se le pide sin aportar. *Respuesta:* sesión de escucha obligatoria y propuesta de enfoque por escrito antes de presupuestar el rodaje.
-
-## 5. Saturación visual del sector (qué evitamos)
-- Claquetas, rollos de película, cámaras o botones de *play* como logotipo.
-- La paleta *teal & orange* (verde azulado y naranja) o el negro con naranja como «look de cine».
-- Tipografías *stencil*, grunge o de máquina de escribir.
-- Fotos de archivo de equipos de cámara en lugar de trabajo propio.
-- Frases del tipo «damos vida a tus ideas», «creatividad sin límites» o «calidad 4K».
-
-*Nota de coherencia:* el logotipo usa el encuadre del visor y el punto REC, que son códigos del oficio. Para que no caigan en el tópico se dibujan con una geometría mínima, letras propias y un único punto de color, y nunca se acompañan de cámaras ni claquetas.
-
-## 6. Dirección estratégica
-- **Territorio:** cine documental aplicado a la empresa. Mirada de autor, sin estridencias, con luz atlántica.
-- **Posicionamiento [R]:** *Para empresas gallegas con oficio que necesitan contar quiénes son con credibilidad, Eneia Estudio es el estudio audiovisual que aplica la mirada y el rigor del cine documental al vídeo de empresa, porque una historia real, bien filmada, convence más que un anuncio.*
+## 5. Dirección estratégica
+- **Posicionamiento [R]:** *Para empresas que necesitan vender con buena imagen y no pueden pagar un rodaje cada vez, Eneia es el estudio audiovisual que crea fotos y vídeos publicitarios con IA y dirección de arte de cine, en días y a precio de pyme, porque la IA es la herramienta, pero la mirada marca la diferencia.*
 - **Diferenciación [R]:**
-  1. **Método Eneia** en cuatro tiempos: *Escoitar · Guion · Rodaxe · Vida útil*.
-  2. **Estudio familiar, dos miradas:** Noe y Adán firman cada proyecto. El nombre lo dice: Eneia = «N y A», y guarda dentro el nombre de su hija, Nia.
-  3. **Kit de vida útil** incluido.
-  4. **Bilingüismo natural** gallego-castellano, con versión en inglés para exportación.
+  1. **Criterio humano:** dirección de arte y retoque en cada pieza.
+  2. **Fidelidad al producto:** siempre se parte de fotos reales y el producto no se altera.
+  3. **Rapidez y precio cerrado:** primeras propuestas en 72 horas.
+  4. **IA responsable:** licencia comercial, etiquetado y consentimiento.
+  5. **Cercanía:** estudio gallego y bilingüe, con trato directo con la fundadora.
 - **Mercados [R]:**
-  - *Primario:* pymes gallegas de industria, mar y alimentación, vino y turismo de calidad (10 a 250 empleados).
-  - *Secundario:* agencias de comunicación gallegas que subcontratan la producción.
-  - *Terciario:* instituciones, fundaciones y cultura.
+  - *Primario:* comercio y tiendas online, alimentación, vino y conservas, restauración, moda.
+  - *Secundario:* inmobiliaria, turismo y alojamientos.
+  - *Canal:* agencias de marketing que subcontratan producción visual.
 
-## 7. Modelo de negocio y viabilidad
+## 6. Modelo de negocio
 | Formato | Contenido | Precio de lanzamiento [H] |
 |---|---|---|
-| **Pieza** | Vídeo de 60–90 s, 1 jornada, guion, montaje, kit de vida útil básico | desde 1.600 € |
-| **Historia** | Documental de marca de 2–4 min, 2 jornadas, entrevistas, kit completo | desde 4.200 € |
-| **Campaña** | Spot de 20–30 s + 6 piezas derivadas para redes y medios | desde 7.500 € |
-| **Continuo** | Contenido mensual: 1 media jornada + 4 piezas verticales | desde 950 €/mes |
+| **Foto** | 20 imágenes de producto y ambiente, 5 días | desde 290 € |
+| **Spot** | Vídeo de 15–30 s con música y rótulos, 3 formatos | desde 590 € |
+| **Campaña** | 30 fotos + 4 vídeos | desde 1.290 € |
+| **Continuo** | 15 fotos + 4 vídeos al mes | desde 490 €/mes |
 
-Los precios son una **hipótesis**. Antes de publicarlos hay que validarlos con cinco presupuestos de la competencia pedidos con un mismo briefing.
+**Costes [H]:**
+- **Variables:** suscripciones a herramientas de IA, entre 60 y 200 € al mes según volumen, y música con licencia.
+- **Margen:** alto a partir del segundo cliente mensual, porque no hay costes de rodaje.
+- **Escalabilidad:** el cuello de botella es el tiempo de dirección y retoque. El siguiente paso es incorporar a una persona de retoque y edición.
 
 | Riesgo | Impacto | Mitigación |
 |---|---|---|
-| Sin cartera inicial | Alto | 2–3 piezas de autor propias en 90 días + primer cliente a precio de lanzamiento con derechos de difusión |
-| Guerra de precios | Medio | No competir en «vídeo barato»: formatos con valor explícito |
-| Dependencia de dos personas | Medio | Red de colaboradores freelance (sonido, dron, colorista) con tarifas pactadas |
-| Estacionalidad (ferias) | Medio | Formato «Continuo» para tener ingresos recurrentes |
-| Inversión en equipo | Medio | Alquilar por proyecto durante los primeros 12 meses |
-| Marca «NIA» registrada en la UE (clase 41) | Medio | No separar ni destacar «NIA» dentro de ENEIA; registrar la marca mixta ENEIA ESTUDIO |
+| Clientes que lo hacen solos con IA | Alto | Vender criterio, rapidez y garantía legal, no la herramienta |
+| Desconfianza hacia la IA | Medio | Transparencia, ejemplos «antes / después» y fidelidad del producto |
+| Cambios de precio o de condiciones de las herramientas | Medio | Trabajar con varias herramientas y revisar sus licencias cada trimestre |
+| Marco legal en evolución (AI Act, derechos de autor) | Medio | Etiquetado, consentimientos por escrito, cláusulas en el presupuesto y revisión legal anual |
+| Calidad irregular de la IA | Medio | Control de calidad en 5 puntos antes de cada entrega |
+| Marca «NIA» registrada en la UE (clase 41) | Bajo | No destacar «NIA» dentro de ENEIA |
 
-**Escalabilidad [H]:** el estudio crece por recurrencia (cuotas mensuales), por subcontratación de agencias y por formatos replicables, como series de testimonios o vídeos de feria. El siguiente escalón es incorporar a una tercera persona para producción y edición.
-
-## 8. Fuentes (consultadas el 4 de noviembre de 2026)
-- Xunta de Galicia, ayudas al audiovisual: https://www.xunta.gal/notas-de-prensa/-/nova/009792/xunta-incrementa-ata-3-sua-principal-lina-subvencions-audiovisual-galego
-- AGADIC, *Memoria industrias culturais 2025*: https://industriasculturais.xunta.gal/sites/default/files/docs/publication/memoria-industrias-culturais-2025.pdf
-- Páxinas Galegas, productoras audiovisuales de Galicia: https://www.paxinasgalegas.es/productoras-audiovisuales-galicia-2119ep.html
-- Páxinas Galegas, ficha de Marma S. Coop.: https://www.paxinasgalegas.es/marma-s-coop-577239em.html
-- Camaleón Cinema Services: https://www.camaleonrental.com/es/productora-audiovisual-galicia
+## 7. Fuentes (consultadas en noviembre de 2026)
+- Xunta de Galicia, ayudas y datos del sector audiovisual: https://www.xunta.gal/notas-de-prensa/-/nova/009792/xunta-incrementa-ata-3-sua-principal-lina-subvencions-audiovisual-galego
 - Wyzowl, *Video Marketing Statistics*: https://wyzowl.com/video-marketing-statistics/
-- ProfileTree, estadísticas de vídeo marketing: https://profiletree.com/video-marketing-statistics/
-- Cronoshare, factores de precio del vídeo corporativo: https://www.cronoshare.com/servicios/videos-para-empresa-corporativos/barcelona/barcelona
+- Europa Press (vía Bolsamanía), entrada en vigor de las obligaciones de transparencia: https://www.bolsamania.com/noticias_amp/empresas/economia--la-ue-estrena-este-domingo-las-primeras-obligaciones-de-transparencia-de-la-ley-de-ia--23171316
+- McCann FitzGerald, obligaciones del art. 50 para quienes despliegan IA: https://www.mccannfitzgerald.com/knowledge/data-privacy-and-cyber-risk/ai-transparency-european-commissions-guidelines-on-article-50-part-2-deployer-obligations
+- Reed Smith, sobre el etiquetado: https://www.reedsmith.com/our-insights/blogs/viewpoints/102nfqg/always-read-the-label-eu-ai-transparency-rules-and-questions-that-remain-unanswe/
+- Dastra, aplazamiento del marcado técnico: https://www.dastra.eu/en/blog/ai-act-transparency-rules-what-changes-august-2-2026/60164/
 
-**Investigación de campo pendiente [R]:**
-- Cinco presupuestos de la competencia (Vigo, Santiago y A Coruña) pedidos con un mismo briefing.
-- Diez entrevistas breves con gerentes de pymes del público objetivo.
+**Pendiente [R]:**
+- Validar los precios con 10 pymes del público objetivo.
+- Revisar la versión final de las directrices de la Comisión sobre el art. 50.
+- Leer los términos de uso comercial de cada herramienta de IA antes de usarla con clientes.

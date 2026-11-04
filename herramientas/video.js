@@ -14,11 +14,11 @@ const comp = JSON.parse(fs.readFileSync(path.join(ROOT, 'MARCA/04_LOGOTIPOS/comp
 const FPS = 25;
 
 const FRASES = [
-  'Hay empresas que hacen cosas extraordinarias.',
-  'Y vídeos que las hacen parecer todas iguales.',
-  'Primero, escuchamos.',
-  'Filmamos a vuestra gente. Con su voz.',
-  'Sin bancos de imágenes. Sin épica de alquiler.',
+  'Vuestros productos merecen imagen de cine.',
+  'Sin rodajes eternos. Sin presupuestos imposibles.',
+  'Creamos fotos y vídeos con inteligencia artificial.',
+  'Con dirección de arte. Con criterio.',
+  'Listos para vender en días, no en meses.',
   'Mirada de cine. Oficio de empresa.',
 ];
 

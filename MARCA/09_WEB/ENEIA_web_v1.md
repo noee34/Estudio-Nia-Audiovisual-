@@ -13,7 +13,7 @@ Una sola página con anclas, más dos páginas auxiliares:
 | Método (4 tiempos) | Reducir la incertidumbre del cliente |
 | Formatos con precio «desde» | Filtrar contactos y transmitir claridad |
 | Para quién (sectores) | Que el cliente se identifique |
-| El estudio (N y A, Arya) | Humanizar la marca |
+| El estudio (Noe, Arya) | Humanizar la marca |
 | Contacto (formulario) | Conversión |
 | `legal.html` | Aviso legal, privacidad (RGPD) y cookies |
 | `404.html` | Error «Fuera de plano» |
@@ -29,7 +29,7 @@ Una sola página con anclas, más dos páginas auxiliares:
 - **Comprobado:** en iPhone 13 la página no tiene desplazamiento horizontal.
 
 ## 4. SEO básico
-- Título y descripción con las palabras clave «vídeo corporativo», «publicidad» y «Galicia».
+- Título y descripción con las palabras clave «fotos y vídeos publicitarios», «IA», «empresas» y «Galicia».
 - `canonical`, Open Graph (con imagen `og.png` de 1200×630), `robots.txt`, `sitemap.xml` y datos estructurados JSON-LD (`ProfessionalService`, `areaServed: Galicia`).
 - Encabezados jerárquicos (un único H1) y texto real, no imágenes de texto.
 - **Pendiente** cuando haya dominio propio: sustituir `https://eneiaestudio.com/` en `index.html`, `robots.txt` y `sitemap.xml` y darlo de alta en Google Search Console.

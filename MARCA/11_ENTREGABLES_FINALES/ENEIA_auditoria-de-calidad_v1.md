@@ -16,6 +16,7 @@ Escala de 0 a 100. El umbral de aprobación es 95. Cada fila recoge los defectos
 | **Vídeo** | Error en la sintaxis del audio (ffmpeg). | Corregido. 4 MP4 verificados con `ffprobe`: H.264 + AAC, 1920×1080 y 1080×1920, 6,5 s y 20 s. | 95 |
 | **Presentación** | Diapositivas de 4 columnas con texto demasiado pequeño. | Cuerpo de texto aumentado y estructura con filetes. | 95 |
 | **Estrategia y marketing** | — | Se distingue entre dato comprobado, hipótesis y recomendación. Los objetivos se marcan como propuestos. Fuentes registradas. | 95 |
+| **Reposicionamiento v2 (estudio con IA)** | Mensajes de «cine documental» y «personas reales» contradecían el nuevo modelo con IA. | Reescritura de la web, el Instagram, el vídeo, el manual, la presentación y los documentos, más un marco legal (AI Act, art. 50) y un control de calidad para la IA. | 95 |
 
 ## Limitaciones reales (no simuladas)
 - **Mockups (93):** son escenas vectoriales y tipográficas dibujadas por código, no fotomontajes fotorrealistas. Para fotografía de producto real hacen falta fotos propias o plantillas PSD de pago.

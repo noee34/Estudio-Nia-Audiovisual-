@@ -44,33 +44,28 @@ const frame = (n, dot = true) => `<i class="c c1"></i><i class="c c2"></i><i cla
 <div class="hud bl">ENEIA ESTUDIO</div><div class="hud br">00:00:${String((n - 1) * 3).padStart(2, '0')}:00</div>`;
 
 const slides = [
-  ['dk', `<div class="mid"><div class="eb">Galicia · Estudio audiovisual</div><h1>Vuestra empresa hace cosas extraordinarias.</h1><p class="it" style="font:400 italic 58px/1.15 ISi;opacity:1;margin-top:48px">¿Vuestro vídeo lo cuenta?</p></div><div class="swipe">DESLIZA →</div>`],
-  ['dk', `<div class="mid"><div class="eb">El problema</div><h2>Dron. Música épica. Nave industrial. Logotipo.</h2><p>El mismo vídeo para cien empresas distintas. Bonito, caro… e intercambiable.</p></div>`],
-  ['lt', `<div class="mid"><div class="eb">Quiénes somos</div><h1>Somos <span class="red">Eneia</span>.</h1><p>Eneia es como suena <b>«N&nbsp;y&nbsp;A»</b>: Noe y Adán. Y dentro guarda el nombre de nuestra hija, <b>Nia</b>. Un estudio familiar, dos miradas en cada proyecto.</p></div>`],
-  ['dk', `<div class="mid"><div class="eb">Lo que hacemos</div><h2>Mirada de cine.<br><span class="it">Oficio de empresa.</span></h2><p>Vídeo corporativo, documental de marca y publicidad con la verdad del cine documental: vuestra gente, vuestra voz, vuestro oficio.</p></div>`],
-  ['dk', `<div class="mid"><div class="eb">Método Eneia</div><h2 style="font-size:88px">Primero escuchamos. Después encuadramos.</h2><ul class="list">
-     <li><b>01</b><span>Escoitar</span></li><li><b>02</b><span>Guion</span></li><li><b>03</b><span>Rodaxe</span></li><li><b>04</b><span>Vida útil</span></li></ul></div>`],
-  ['lt', `<div class="mid"><div class="eb">Lo que recibís</div><h2 style="font-size:92px">Una historia que dura años.</h2><ul class="list">
-     <li><b>✓</b><span>Pieza principal<small>Para web, ferias y equipo comercial.</small></span></li>
-     <li><b>✓</b><span>Cortes verticales<small>Listos para redes, 9:16 y 4:5.</small></span></li>
-     <li><b>✓</b><span>Subtítulos ES · GL · EN<small>Y precio claro desde el primer día.</small></span></li></ul></div>`],
-  ['dk', `<div class="mid" style="text-align:center"><div style="width:640px;margin:0 auto 70px">${LO}</div><h2 style="font-size:96px">Contadnos qué hacéis.</h2><p style="margin:36px auto 0">Escribidnos por mensaje directo<br>o desde el enlace de la bio.</p></div>`],
+  ['dk', `<div class="mid"><div class="eb">Estudio audiovisual con IA · Galicia</div><h1>Tu producto merece imagen de cine.</h1><p class="it" style="font:400 italic 58px/1.15 ISi;opacity:1;margin-top:48px">¿Tus fotos y vídeos lo consiguen?</p></div><div class="swipe">DESLIZA →</div>`],
+  ['dk', `<div class="mid"><div class="eb">El problema</div><h2>Rodajes caros. Semanas de espera. Fotos de móvil.</h2><p>Y mientras tanto, tu competencia vende con mejor imagen.</p></div>`],
+  ['lt', `<div class="mid"><div class="eb">Quiénes somos</div><h1>Somos <span class="red">Eneia</span>.</h1><p>Un estudio audiovisual que une inteligencia artificial y dirección de arte para crear fotos y vídeos que venden.</p></div>`],
+  ['dk', `<div class="mid"><div class="eb">Lo que hacemos</div><h2>Fotos de producto.<br>Spots. <span class="it">Campañas.</span></h2><p>Imagen publicitaria para tu web, tus redes y tus anuncios, creada con IA a partir de tu producto real.</p></div>`],
+  ['dk', `<div class="mid"><div class="eb">Método Eneia</div><h2 style="font-size:88px">La IA es la herramienta. La mirada, nuestra.</h2><ul class="list">
+     <li><b>01</b><span>Escoitar</span></li><li><b>02</b><span>Guion</span></li><li><b>03</b><span>Xeración</span></li><li><b>04</b><span>Entrega</span></li></ul></div>`],
+  ['lt', `<div class="mid"><div class="eb">Por qué Eneia</div><h2 style="font-size:92px">Más imagen. Menos coste.</h2><ul class="list">
+     <li><b>✓</b><span>En días, no en meses<small>Primeras propuestas en 72 horas.</small></span></li>
+     <li><b>✓</b><span>Desde 290 €<small>Precio cerrado antes de empezar.</small></span></li>
+     <li><b>✓</b><span>Listo para usar<small>Licencia comercial y etiquetado de IA incluidos.</small></span></li></ul></div>`],
+  ['dk', `<div class="mid" style="text-align:center"><div style="width:640px;margin:0 auto 70px">${LO}</div><h2 style="font-size:96px">Cuéntanos qué vendes.</h2><p style="margin:36px auto 0">Escríbenos por mensaje directo<br>o desde el enlace de la bio.</p></div>`],
 ];
 
-const CAPTION = `Vuestra empresa hace cosas extraordinarias. ¿Vuestro vídeo lo cuenta? 🎬
+const CAPTION = `Tu producto merece imagen de cine. 🎬
 
-Somos Eneia: un estudio audiovisual familiar de Galicia. Somos Noe y Adán, y Eneia une nuestras iniciales con el nombre de nuestra hija, Nia. Hacemos vídeo corporativo, documental de marca y publicidad con la verdad del cine documental. Con vuestra gente, vuestra voz y vuestro oficio.
-
-Sin bancos de imágenes. Sin épica de alquiler. Con precio claro desde el primer día.
+Somos Eneia, un estudio audiovisual que crea fotos y vídeos publicitarios con inteligencia artificial y dirección de arte. Imagen profesional para tu web, tus redes y tus anuncios, en días y sin rodajes.
 
 Mirada de cine. Oficio de empresa.
 
-📩 Contadnos qué hacéis: mensaje directo o enlace en la bio.
+📩 Cuéntanos qué vendes: mensaje directo o enlace en la bio.
 
-—
-Somos Eneia, estudio audiovisual galego. Contamos o que facedes. 🇬🇱
-
-#EneiaEstudio #VideoCorporativo #ProductoraAudiovisual #DocumentalDeMarca #PublicidadAudiovisual #Galicia #EmpresasGalegas #Vigo #ACoruña #Santiago #Pontevedra #MarketingDeContenidos #VideoMarketing #HechoEnGalicia
+#EneiaEstudio #FotografiaDeProducto #VideoPublicitario #InteligenciaArtificial #IA #ContenidoParaRedes #MarketingDigital #Galicia #EmpresasGalegas #Ecommerce #PublicidadIA
 `;
 
 (async () => {

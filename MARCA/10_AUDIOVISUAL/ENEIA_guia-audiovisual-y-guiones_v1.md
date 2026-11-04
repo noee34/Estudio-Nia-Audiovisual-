@@ -1,77 +1,76 @@
-# Guía audiovisual y guiones
-**Eneia Estudio · v1**
+# Guía audiovisual, flujo de trabajo con IA y guiones
+**Eneia Estudio · v2**
 
 ## 1. Dirección creativa
-**Idea rectora:** *cine documental aplicado a la empresa*. La cámara observa, no presume. Primero se escucha y después se encuadra.
+**Idea rectora:** la imagen tiene que parecer **fotografía y cine de verdad**, nunca «hecha con IA». La IA acelera; la dirección de arte decide.
 
 | Parámetro | Norma |
 |---|---|
-| Formato maestro | 3840×2160 (UHD) a 25p. Entrega en 1920×1080, más versiones 1080×1920 (9:16) y 1080×1350 (4:5) |
-| Relación de aspecto de autor | 2,39:1 con bandas para piezas de marca. 16:9 para piezas informativas |
-| Cámara | Trípode o *slider* por defecto. Cámara en mano solo para seguir una acción real. Dron solo si aporta información (escala, territorio) |
-| Movimientos | Travelling lateral lento, *push-in* de 5–10 % en el momento clave de una entrevista y planos fijos largos (4–6 s) |
-| Óptica | 35 mm y 50 mm equivalentes como base; 85 mm para entrevistas; nada de gran angular deformante |
-| Luz | Natural lateral (ventana) reforzada con una fuente suave. Contraste moderado. Sin luz cenital plana |
-| Color | Negros densos con un toque de Noite (#0E1A20), blancos cálidos sin quemar, piel natural. Prohibido el *teal & orange* |
-| Sonido | Sonido directo de los oficios (máquinas, mar, manos) en primer plano. Entrevistas con micrófono de solapa y otro de cañón |
-| Montaje | Cortes en la acción, respiración entre frases y nada de transiciones decorativas. Solo cortes, fundidos a Noite y la cortinilla de encuadre de marca |
-| Rótulos | Instrument Sans en mayúsculas con tracking amplio (créditos) e Instrument Serif para las citas. Dentro de la zona segura del 90 % |
-| Música | Original o con licencia comercial verificada (ver § 6). Tempo lento y base de piano, cuerda o drone. Nunca épica de banco |
+| Formatos de entrega | Foto: 4:5, 1:1, 16:9 y 9:16 · Vídeo: 9:16 (redes), 1:1, 16:9 (web y pantallas), a 25p |
+| Luz | Natural y lateral, de ventana o exterior suave. Contraste moderado y sombras creíbles |
+| Óptica simulada | 35–50 mm para ambiente, 85–100 mm macro para producto. Sin distorsión gran angular |
+| Color | Negros densos con matiz Noite, blancos cálidos, color fiel al producto |
+| Movimiento (vídeo) | *Push-in* lento, travelling lateral, órbita suave alrededor del producto. Nada de cámaras imposibles |
+| Montaje | Al ritmo de la música, con cortes y fundidos a Noite. Cortinilla de encuadre de marca |
+| Rótulos | Instrument Sans en mayúsculas espaciadas e Instrument Serif para las frases |
+| Música | Original o con licencia comercial verificada |
 
-## 2. Identidad audiovisual (recursos fijos)
-1. **Ident de 6 s:** las esquinas del encuadre entran, se enciende el punto REC con un pitido suave y se escribe ENEIA. Fuente: `ENEIA_ident_16x9_v1.mp4` / `9x16`.
-2. **Cortinilla de encuadre:** cuatro esquinas que se cierran sobre la imagen (8 fotogramas). Separa capítulos.
-3. **Rótulo de persona:** nombre en Instrument Sans SemiBold y cargo en Pedra, a la izquierda, sobre el tercio inferior, con una barra roja de 2 px a la izquierda.
-4. **Visor de marca:** el logotipo *visor* (REC · 4K · 25P · GALICIA · código de tiempo) para portadas de redes y *making of*.
-5. **Cierre:** el logotipo principal sobre Noite durante 2 s, con el lema y la web.
+## 2. Flujo de trabajo (Método Eneia)
+1. **Escoitar.** Recogida del briefing: qué se vende, a quién, en qué canal y con qué fecha. El cliente envía de 3 a 6 fotos reales del producto (fondo neutro, buena luz).
+2. **Guion.** Concepto, *moodboard* de 6–9 referencias, lista de imágenes y vídeos y textos. Se presupuesta con precio cerrado y el cliente lo aprueba.
+3. **Xeración.**
+   - Creación de las imágenes con herramientas de IA generativa a partir de las fotos reales.
+   - Composición del producto real sobre el escenario cuando la fidelidad lo exige.
+   - Retoque a mano: luz, color, bordes, etiquetas y textos.
+   - Animación a vídeo y montaje.
+4. **Entrega.**
+   - Exportación por canal y una ronda de cambios incluida.
+   - Archivo con el registro de herramientas usadas.
+   - Licencia y etiquetado.
 
-## 3. Guion · Manifiesto de marca (20 s · entregado)
-| # | Tiempo | Imagen (versión tipográfica entregada) | Texto en pantalla | Sonido |
-|---|---|---|---|---|
-| 1 | 0,0–2,8 | Visor de marca sobre Noite, REC encendido | «Hay empresas que hacen cosas extraordinarias.» | Drone grave, entra el pulso |
-| 2 | 2,8–5,6 | Ídem, cambia el código de tiempo | «Y vídeos que las hacen parecer todas iguales.» | Pulso |
-| 3 | 5,6–8,4 | Ídem | «Primero, escuchamos.» | Pulso, se abre un armónico |
-| 4 | 8,4–11,2 | Ídem | «Filmamos a vuestra gente. Con su voz.» | Pulso |
-| 5 | 11,2–14,0 | Ídem | «Sin bancos de imágenes. Sin épica de alquiler.» | Pulso |
-| 6 | 14,0–16,8 | Ídem | «Mirada de cine. Oficio de empresa.» | Se apaga el pulso y queda el drone |
-| 7 | 16,8–20,0 | Logotipo principal | ENEIA · Estudio audiovisual · Galicia | Pitido REC y fundido |
+## 3. Control de calidad (cinco puntos, obligatorios antes de entregar)
+1. **Fidelidad:** el producto coincide con el real en forma, color, etiqueta y proporciones.
+2. **Anatomía:** manos, dedos, rostros y cuerpos sin deformaciones.
+3. **Texto:** no hay letras inventadas ni ilegibles. Los textos reales se colocan a mano.
+4. **Física:** luz, sombras, reflejos y escala coherentes.
+5. **Marca:** paleta, encuadre y un único acento rojo. Sin «estética IA».
 
-**Versión rodada (cuando haya material propio):** se mantiene el mismo texto como locución en *off* de Noe o Adán y cada frase se cubre con un plano real.
-1. Manos de una rederia.
-2. Un *dron* genérico de polígono industrial, tachado por la cortinilla de encuadre.
-3. Noe o Adán escuchando con un cuaderno.
-4. Un primer plano de un operario hablando.
-5. Un plano de un banco de imágenes desenfocado que se corta a negro.
-6. Un contraluz atlántico en un puerto.
-7. El cierre de marca.
+## 4. Marco legal e IA responsable
+- **Etiquetado (AI Act, art. 50, aplicable desde el 2 de agosto de 2026):** cuando una imagen o un vídeo generado con IA pueda parecer real, se informa de forma clara. Fórmula recomendada: «Imagen creada con IA» en el pie, la descripción o la etiqueta de la plataforma.
+  - El marcado técnico de la herramienta no exime de esta obligación.
+  - Hay que revisar las directrices definitivas de la Comisión.
+- **Personas:** solo modelos sintéticos genéricos. Nunca se recrea a una persona real sin su consentimiento por escrito ni se imita a famosos, artistas o marcas de terceros.
+- **Licencias:** solo se usan herramientas cuyos términos permitan el uso comercial. Hay que guardar la versión de los términos vigente en cada proyecto.
+- **Derechos de autor:** las imágenes generadas íntegramente por IA pueden no estar protegidas por derechos de autor en la UE.
+  - El presupuesto incluye una cláusula que cede al cliente todos los derechos de uso posibles y explica este límite.
+  - La aportación humana (composición, retoque, montaje) refuerza la autoría.
+- **Datos del cliente:** las fotos del producto se usan solo para su proyecto y no se suben a herramientas que entrenen con ellas sin permiso.
 
-## 4. Guion · Spot de captación «Contamos lo que hacéis» (30 s · para rodar)
-| # | Tiempo | Plano | Movimiento | Audio |
-|---|---|---|---|---|
-| 1 | 0–3 | Primer plano detalle: manos limpiando una lata en una conservera | Fijo, 85 mm | Sonido directo de la línea |
-| 2 | 3–6 | Plano medio: la operaria mira a cámara, aún sin hablar | *Push-in* lento | Off: «¿Qué hacéis exactamente?» |
-| 3 | 6–11 | Entrevista: «Llevo veintidós años aquí. Sé cuándo una lata está bien solo por el sonido.» | Fijo | Voz directa |
-| 4 | 11–15 | Plano general de la nave con luz lateral de los ventanales | Travelling lateral | Ambiente + piano |
-| 5 | 15–19 | Visor de marca sobrepuesto: REC encendido, Noe o Adán ajusta el foco | Fijo | Pitido REC |
-| 6 | 19–25 | Montaje de tres oficios (bodega, astillero, panadería) en 2 s cada uno | Cortes en la acción | Piano |
-| 7 | 25–30 | Cierre: «Contamos lo que hacéis.» + logotipo + eneiaestudio.com | Fijo | Fin de la música |
+## 5. Guion · Manifiesto de marca (20 s, entregado)
+| # | Tiempo | Texto en pantalla | Sonido |
+|---|---|---|---|
+| 1 | 0,0–2,8 | «Vuestros productos merecen imagen de cine.» | Drone grave, entra el pulso |
+| 2 | 2,8–5,6 | «Sin rodajes eternos. Sin presupuestos imposibles.» | Pulso |
+| 3 | 5,6–8,4 | «Creamos fotos y vídeos con inteligencia artificial.» | Pulso y armónico |
+| 4 | 8,4–11,2 | «Con dirección de arte. Con criterio.» | Pulso |
+| 5 | 11,2–14,0 | «Listos para vender en días, no en meses.» | Pulso |
+| 6 | 14,0–16,8 | «Mirada de cine. Oficio de empresa.» | Solo el drone |
+| 7 | 16,8–20,0 | Logotipo principal | Pitido REC y fundido |
 
-**Adaptaciones:** la vertical 9:16 reencuadra los planos 1, 2 y 3 al tercio central, lleva subtítulos siempre activos y mueve el logotipo al tercio superior. La 1:1 lleva la misma estructura y dura 20 s, sin el plano 4.
+## 6. Guion · Reel de captación «De foto de móvil a anuncio» (15 s, para producir)
+| # | Tiempo | Imagen | Audio |
+|---|---|---|---|
+| 1 | 0–2 | Foto de móvil real del producto, sobre fondo de cocina, con el rótulo «ANTES» | Ambiente |
+| 2 | 2–3 | Cortinilla de encuadre de marca y punto REC | Pitido REC |
+| 3 | 3–9 | Tres imágenes finales del mismo producto (bodegón, mesa, exterior) con *push-in* lento | Música |
+| 4 | 9–12 | Clip de vídeo animado del producto | Música |
+| 5 | 12–15 | Cierre: «Imagen de cine para lo que vendes» + logotipo + «Imagen creada con IA» | Final |
 
-## 5. Storyboard
-Los fotogramas clave del ident y del manifiesto están en `storyboard/`, generados directamente del vídeo final. Para el spot de 30 s, el storyboard se dibuja en la preproducción con las localizaciones reales.
+**Adaptaciones:** el formato nativo es 9:16, con subtítulos siempre. El corte para anuncios es 1:1 y dura 10 s.
 
-## 6. Música y derechos
-- **Piezas entregadas:** la banda sonora del ident y del manifiesto es **síntesis original** generada para Eneia (drone, pulso y tono REC). No tiene derechos de terceros y es propiedad del estudio.
-- **Producción futura:** se pueden usar bibliotecas con licencia comercial verificada (Artlist, Musicbed, Epidemic Sound) o encargar composición original a músicos gallegos con un contrato de cesión de derechos. Hay que guardar siempre la licencia en la carpeta del proyecto.
-- **Prohibido:** usar música comercial sin licencia, aunque sea «solo para redes».
+## 7. Storyboard
+En `storyboard/` están los fotogramas clave del ident y del manifiesto, extraídos del vídeo final.
 
-## 7. Entregables por proyecto (Kit de vida útil)
-| Pieza | Formato |
-|---|---|
-| Máster | MP4 H.264 1080p y ProRes 422 bajo demanda |
-| Vertical | 9:16 1080×1920, de 15 a 40 s, con subtítulos incrustados |
-| Cuadrado / 4:5 | 1080×1350 |
-| Subtítulos | Archivos .srt en castellano, gallego e inglés |
-| Fotogramas | 10 fotogramas en JPEG de alta calidad |
-| Miniatura | Portada con el visor de marca |
+## 8. Música y derechos
+- **Piezas entregadas:** síntesis original propiedad del estudio, sin derechos de terceros.
+- **Proyectos de clientes:** música de bibliotecas con licencia comercial o generada con herramientas cuyos términos lo permitan. Hay que guardar siempre la licencia en la carpeta del proyecto.
