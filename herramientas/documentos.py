@@ -248,7 +248,7 @@ h1{font:400 64px/1.04 ISe;max-width:1000px}.mu{color:#8B908C}
 # ═════════════════════════ DOCUMENTOS MD → HTML (A4) ═════════════════════════
 DOCS = ["01_ESTRATEGIA/ENEIA_estrategia-de-mercado_v1.md", "02_NAMING/ENEIA_naming_v1.md", "03_BRANDING/ENEIA_plataforma-de-marca_v1.md",
         "08_MARKETING/ENEIA_plan-de-marketing-y-lanzamiento_v1.md", "09_WEB/ENEIA_web_v1.md", "10_AUDIOVISUAL/ENEIA_guia-audiovisual-y-guiones_v1.md",
-        "11_ENTREGABLES_FINALES/ENEIA_auditoria-de-calidad_v1.md"]
+        "11_ENTREGABLES_FINALES/ENEIA_auditoria-de-calidad_v1.md", "10_AUDIOVISUAL/proyectos/ENEIA_guia-anuncio-automocion-IA_v1.md"]
 
 def docs():
     css = BASE_CSS + f"""
