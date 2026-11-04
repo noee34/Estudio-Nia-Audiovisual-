@@ -1,0 +1,198 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}#gl{position:absolute;left:-99999px}</style>
+<script type="importmap">{"imports":{"three":"./vendor/three/three.module.js"}}</script>
+</head><body>
+<canvas id="out"></canvas>
+<script type="module">
+// Banco de potencia en 3D: rueda trasera girando sobre rodillos, con desenfoque de movimiento por acumulación.
+import * as THREE from 'three';
+import { RoomEnvironment } from './vendor/three/addons/environments/RoomEnvironment.js';
+
+const q = new URLSearchParams(location.search);
+const W = +q.get('w') || 1080, H = +q.get('h') || 1100, SUB = +q.get('sub') || 8;
+const out = document.getElementById('out'); out.width = W; out.height = H;
+const ctx = out.getContext('2d');
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.domElement.id = 'gl'; document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x050506);
+scene.fog = new THREE.Fog(0x050506, 2.2, 6.5);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.55;
+
+// ── texturas procedurales ─────────────────────────────
+function canvasTex(w, h, draw, repeat) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h);
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; if (repeat) t.repeat.set(...repeat);
+  t.anisotropy = 8; return t;
+}
+const treadTex = canvasTex(1024, 128, (g, w, h) => {
+  g.fillStyle = '#1b1b1c'; g.fillRect(0, 0, w, h);
+  g.fillStyle = '#0a0a0a';
+  for (let x = 0; x < w; x += 32) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x + 14, 0); g.lineTo(x + 30, h * 0.46); g.lineTo(x + 16, h * 0.46); g.fill();
+    g.beginPath(); g.moveTo(x + 16, h * 0.54); g.lineTo(x + 30, h * 0.54); g.lineTo(x + 14, h); g.lineTo(x, h); g.fill(); }
+  g.fillRect(0, h * 0.22, w, 6); g.fillRect(0, h * 0.75, w, 6);
+});
+const rollerTex = canvasTex(512, 64, (g, w, h) => {
+  g.fillStyle = '#8d9196'; g.fillRect(0, 0, w, h);
+  for (let x = 0; x < w; x += 6) { g.fillStyle = x % 12 ? '#6d7176' : '#a6aaaf'; g.fillRect(x, 0, 3, h); }
+});
+const floorTex = canvasTex(256, 256, (g, w, h) => {
+  g.fillStyle = '#121314'; g.fillRect(0, 0, w, h);
+  g.strokeStyle = '#1d1f21'; g.lineWidth = 3;
+  for (let i = 0; i <= w; i += 32) { g.beginPath(); g.moveTo(i, 0); g.lineTo(i, h); g.stroke(); g.beginPath(); g.moveTo(0, i); g.lineTo(w, i); g.stroke(); }
+}, [10, 10]);
+
+// ── materiales ────────────────────────────────────────
+const M = {
+  tire: new THREE.MeshStandardMaterial({ color: 0x2c2c2e, roughness: 0.6, metalness: 0, side: THREE.DoubleSide }),
+  tread: new THREE.MeshStandardMaterial({ map: treadTex, color: 0xbbbbbb, roughness: 0.75, metalness: 0, side: THREE.DoubleSide }),
+  rim: new THREE.MeshStandardMaterial({ color: 0xb9bcc0, roughness: 0.22, metalness: 1 }),
+  rimDark: new THREE.MeshStandardMaterial({ color: 0x3a3c40, roughness: 0.35, metalness: 1 }),
+  disc: new THREE.MeshStandardMaterial({ color: 0x6b6e72, roughness: 0.45, metalness: 1 }),
+  caliper: new THREE.MeshStandardMaterial({ color: 0xc8161e, roughness: 0.35, metalness: 0.2 }),
+  paint: new THREE.MeshPhysicalMaterial({ color: 0x4a0b16, roughness: 0.28, metalness: 0.35, clearcoat: 1, clearcoatRoughness: 0.06 }),
+  roller: new THREE.MeshStandardMaterial({ map: rollerTex, color: 0x777b80, roughness: 0.42, metalness: 1 }),
+  steel: new THREE.MeshStandardMaterial({ color: 0x2b2d30, roughness: 0.5, metalness: 0.9 }),
+  yellow: new THREE.MeshStandardMaterial({ color: 0xd8a514, roughness: 0.5, metalness: 0.3 }),
+  floor: new THREE.MeshStandardMaterial({ map: floorTex, color: 0x555555, roughness: 0.5, metalness: 0.5 }),
+};
+
+// ── rueda (eje X) ─────────────────────────────────────
+const R = 0.33, RIM = 0.235, WD = 0.245;
+const wheel = new THREE.Group();
+// neumático: perfil en revolución (eje Y) y luego girado a eje X
+const prof = [];
+for (let i = 0; i <= 24; i++) {
+  const a = -Math.PI / 2 + Math.PI * i / 24;
+  const r = RIM + (R - RIM) * (0.55 + 0.45 * Math.cos(a) ** 0.5);
+  prof.push(new THREE.Vector2(Math.max(RIM, r), (WD / 2) * Math.sin(a)));
+}
+const tire = new THREE.Mesh(new THREE.LatheGeometry(prof, 128), M.tire);
+const tread = new THREE.Mesh(new THREE.CylinderGeometry(R - 0.001, R - 0.001, WD * 0.78, 160, 1, true), M.tread);
+treadTex.repeat.set(1, 1); treadTex.rotation = 0;
+tread.material.map.repeat.set(1, 1);
+[tire, tread].forEach((m) => { m.rotation.z = Math.PI / 2; m.castShadow = true; wheel.add(m); });
+// llanta: tambor + 10 radios (5 dobles) + buje
+const barrel = new THREE.Mesh(new THREE.CylinderGeometry(RIM, RIM, WD * 0.92, 96, 1, true), M.rimDark);
+barrel.rotation.z = Math.PI / 2; wheel.add(barrel);
+const lip = new THREE.Mesh(new THREE.TorusGeometry(RIM, 0.012, 16, 128), M.rim); lip.rotation.y = Math.PI / 2; lip.position.x = WD * 0.46; wheel.add(lip);
+for (let i = 0; i < 10; i++) {
+  const a = (i / 5) * Math.PI + (i % 2 ? 0.16 : -0.16);
+  const s = new THREE.Mesh(new THREE.BoxGeometry(0.022, RIM * 0.86, 0.02), M.rim);
+  s.position.set(WD * 0.42, Math.cos(a) * RIM * 0.5, Math.sin(a) * RIM * 0.5);
+  s.rotation.x = -a; s.rotation.z = 0.12; s.castShadow = true; wheel.add(s);
+}
+const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.065, 0.06, 48), M.rim); hub.rotation.z = Math.PI / 2; hub.position.x = WD * 0.43; wheel.add(hub);
+const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.012, 32), M.rimDark); cap.rotation.z = Math.PI / 2; cap.position.x = WD * 0.47; wheel.add(cap);
+for (let i = 0; i < 5; i++) { const a = i / 5 * Math.PI * 2; const n = new THREE.Mesh(new THREE.CylinderGeometry(0.009, 0.009, 0.03, 12), M.rimDark); n.rotation.z = Math.PI / 2; n.position.set(WD * 0.47, Math.cos(a) * 0.045, Math.sin(a) * 0.045); wheel.add(n); }
+// disco de freno (fijo respecto a la rueda: gira con ella) y pinza (fija)
+const disc = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.17, 0.022, 96), M.disc); disc.rotation.z = Math.PI / 2; disc.position.x = 0.02; wheel.add(disc);
+const caliper = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.1, 0.05), M.caliper); caliper.position.set(-0.01, 0.1, -0.1); caliper.rotation.x = 0.7;
+wheel.position.set(0, R, 0); scene.add(wheel);
+const caliperG = new THREE.Group(); caliperG.position.copy(wheel.position); caliperG.add(caliper); scene.add(caliperG);
+
+// ── aleta trasera del coche (E36 granate) ─────────────
+// silueta del lateral con el paso de rueda recortado (arco sobre la rueda)
+const RA = R + 0.075, YB = 0.2, dx = Math.sqrt(RA * RA - (R - YB) ** 2);
+const sh = new THREE.Shape(); sh.moveTo(-1.6, YB); sh.lineTo(-dx, YB);
+const a0 = Math.atan2(YB - R, -dx), a1 = Math.atan2(YB - R, dx);
+for (let i = 0; i <= 64; i++) { const a = a0 - (a0 - a1 + 2 * Math.PI) * i / 64; sh.lineTo(Math.cos(a) * RA, R + Math.sin(a) * RA); }
+sh.lineTo(1.6, YB); sh.lineTo(1.6, 1.05); sh.lineTo(-1.6, 1.05); sh.lineTo(-1.6, YB);
+const body = new THREE.Mesh(new THREE.ExtrudeGeometry(sh, { depth: 0.08, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: 4, curveSegments: 96 }), M.paint);
+body.rotation.y = Math.PI / 2; body.position.set(WD / 2 + 0.07, 0, 0); body.castShadow = true; scene.add(body);
+const well = new THREE.Mesh(new THREE.CircleGeometry(R + 0.09, 64), new THREE.MeshStandardMaterial({ color: 0x060606, roughness: 1 }));
+well.rotation.y = Math.PI / 2; well.position.set(-0.2, R, 0); scene.add(well);
+
+// ── banco: rodillos, foso y suelo ──────────────────────
+const RR = 0.16, gap = 0.26;
+const rollers = [];
+for (const z of [-gap, gap]) {
+  const r = new THREE.Mesh(new THREE.CylinderGeometry(RR, RR, 0.9, 96), M.roller); r.rotation.z = Math.PI / 2;
+  r.position.set(0, R - Math.sqrt((R + RR) ** 2 - gap ** 2) + 0.0, z); r.receiveShadow = true; scene.add(r); rollers.push(r);
+}
+const pitY = rollers[0].position.y;
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(14, 14), M.floor); floor.rotation.x = -Math.PI / 2; floor.position.y = pitY + 0.02; floor.receiveShadow = true; scene.add(floor);
+// rejilla del foso (marco) con bordes amarillos
+const frame = new THREE.Group();
+for (const z of [-0.62, 0.62]) { const b = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.03, 0.06), M.yellow); b.position.set(0, pitY + 0.035, z); frame.add(b); }
+for (const x of [-0.7, 0.7]) { const b = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.03, 1.3), M.yellow); b.position.set(x, pitY + 0.035, 0); frame.add(b); }
+scene.add(frame);
+const pit = new THREE.Mesh(new THREE.BoxGeometry(1.34, 0.5, 1.18), new THREE.MeshStandardMaterial({ color: 0x0b0b0c, roughness: 0.8, side: THREE.BackSide })); pit.position.set(0, pitY - 0.23, 0); scene.add(pit);
+
+// ── luces ──────────────────────────────────────────────
+const key = new THREE.SpotLight(0xffffff, 22, 8, 0.5, 0.7, 1.5); key.position.set(2.4, 2.2, 0.6); key.target.position.set(0, R, 0); key.castShadow = true; key.shadow.mapSize.set(2048, 2048);
+scene.add(key, key.target);
+const rim = new THREE.SpotLight(0xbfd4ff, 45, 8, 0.45, 0.7, 1.5); rim.position.set(1.2, 1.2, -2.4); rim.target.position.set(0, R, 0); scene.add(rim, rim.target);
+const red = new THREE.PointLight(0xff2a1a, 6, 3, 1.6); red.position.set(0.9, 0.08, 0.9); scene.add(red);
+const fill = new THREE.HemisphereLight(0x9aa4b0, 0x000000, 0.35); scene.add(fill);
+const tireL = new THREE.SpotLight(0xffffff, 18, 6, 0.4, 0.8, 1.5); tireL.position.set(1.4, 0.15, 1.6); tireL.target.position.set(0, 0.2, 0); scene.add(tireL, tireL.target);
+
+// ── estilo telemetría: sólidos negros como oclusores + aristas luminosas ──
+const LINE = { tire: 0xffffff, rim: 0xffffff, paint: 0xff2a3a, roller: 0x8f959c, steel: 0x6a6f75, yellow: 0xd8a514, caliper: 0xe1262d, disc: 0x9aa0a6 };
+const occl = new THREE.MeshBasicMaterial({ color: 0x030304, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
+const lineMat = (c, o = 1) => new THREE.LineBasicMaterial({ color: c, transparent: o < 1, opacity: o });
+scene.traverse((o) => {
+  if (!o.isMesh || o === floor || o === pit || o === well) return;
+  const key = Object.keys(M).find((k) => M[k] === o.material) || 'steel';
+  const thr = key === 'paint' ? 8 : (key === 'tire' || key === 'tread' ? 40 : 28);
+  const e = new THREE.LineSegments(new THREE.EdgesGeometry(o.geometry, thr), lineMat(LINE[key] || 0xbfc3c8, key === 'tread' ? 0.0 : 0.95));
+  o.add(e); o.material = occl;
+});
+// tacos de la banda de rodadura (marcas que delatan el giro)
+{ const pts = []; for (let i = 0; i < 72; i++) { const a = i / 72 * Math.PI * 2, c = Math.cos(a) * (R + 0.002), s2 = Math.sin(a) * (R + 0.002);
+    pts.push(new THREE.Vector3(-WD * 0.36, c, s2), new THREE.Vector3(WD * 0.36, Math.cos(a + 0.05) * (R + 0.002), Math.sin(a + 0.05) * (R + 0.002))); }
+  wheel.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), lineMat(0xbdbdbd, 0.7))); }
+// estrías de los rodillos
+rollers.forEach((r) => { const pts = []; for (let i = 0; i < 48; i++) { const a = i / 48 * Math.PI * 2; pts.push(new THREE.Vector3(Math.cos(a) * (RR + 0.001), -0.45, Math.sin(a) * (RR + 0.001)), new THREE.Vector3(Math.cos(a) * (RR + 0.001), 0.45, Math.sin(a) * (RR + 0.001))); }
+  r.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), lineMat(0x6d737a, 0.6))); });
+// suelo: retícula técnica
+floor.material = new THREE.MeshBasicMaterial({ color: 0x040405 });
+const grid = new THREE.GridHelper(8, 64, 0x2a2e33, 0x16181b); grid.position.y = pitY + 0.021; scene.add(grid);
+pit.material = new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.BackSide });
+well.material = new THREE.MeshBasicMaterial({ color: 0x000000 });
+scene.fog = new THREE.Fog(0x000000, 2.6, 6.0); scene.background = new THREE.Color(0x000000);
+
+// ── cámara ─────────────────────────────────────────────
+const cam = new THREE.PerspectiveCamera(W > H ? 26 : 32, W / H, 0.05, 30);
+function camAt(t) { // dolly lento y ligero arco
+  const k = t / 4.5;
+  cam.position.set(1.75 - 0.22 * k, 0.26 + 0.04 * k, 1.05 - 0.18 * k);
+  cam.lookAt(0.12, R * 0.82, -0.04);
+}
+// velocidad angular (rad/s): arranca y sube como en una pasada de banco
+const omega = (t) => 4 + 58 * Math.min(1, Math.max(0, (t - 0.3) / 3.6)) ** 1.6;
+const angle = (t) => { let a = 0, dt = 1 / 400; for (let x = 0; x < t; x += dt) a += omega(x) * dt; return a; };
+
+window.renderAt = (t) => {
+  camAt(t);
+  const shutter = 1 / 50; // 180°
+  ctx.globalCompositeOperation = 'source-over'; ctx.clearRect(0, 0, W, H);
+  for (let i = 0; i < SUB; i++) {
+    const ts = t + (i / SUB) * shutter;
+    const a = angle(ts);
+    wheel.rotation.x = -a;
+    rollers.forEach((r) => { r.rotation.x = a * (R / RR); });
+    red.intensity = 6 + 3 * Math.sin(ts * 9);
+    renderer.render(scene, cam);
+    ctx.globalAlpha = 1 / (i + 1); ctx.drawImage(renderer.domElement, 0, 0);
+  }
+  ctx.globalAlpha = 1;
+  // resplandor: copia desenfocada sumada (bloom)
+  const g = document.createElement('canvas'); g.width = W; g.height = H; const gc = g.getContext('2d'); gc.drawImage(out, 0, 0);
+  ctx.globalCompositeOperation = 'lighter';
+  ctx.filter = 'blur(6px)'; ctx.globalAlpha = 0.9; ctx.drawImage(g, 0, 0);
+  ctx.filter = 'blur(18px)'; ctx.globalAlpha = 0.6; ctx.drawImage(g, 0, 0);
+  ctx.filter = 'none'; ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+  return true;
+};
+window.ready = true;
+</script></body></html>
