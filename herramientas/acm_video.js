@@ -98,7 +98,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
    <path id="ds" fill="none" stroke="#6b7076" stroke-width="3" stroke-dasharray="8 6"/>
    <path id="da" fill="none" stroke="#E1262D" stroke-width="4.5"/><circle id="dd" r="7" fill="#fff"/>
    <text x="590" y="16" fill="#6b7076" font-family="S" font-size="13" text-anchor="end" letter-spacing="2">— — DE SERIE   ━ ACM</text></svg>
-  <div class="disc">VALORES ILUSTRATIVOS · CADA MOTOR SE MIDE EN BANCO</div></div></div>
+  <div class="disc">VALORES ILUSTRATIVOS · IMAGEN GENERADA CON IA</div></div></div>
 <div id="wipe"><b style="background:#d9d9d9"></b><b style="background:#8c8c8c"></b><b style="background:#E1262D"></b></div>
 <div id="grain"></div><div id="fade"></div></div>
 <script>
@@ -183,6 +183,13 @@ function audio(file) {
 
 const DYN = Math.round((D1 - D0) * FPS);
 const dynDir = (W, H) => path.join(TMP, `dyno_${W}x${H}`);
+const CLIP = process.env.ACM_CLIP || path.join(P, 'fuentes/ACM_kling_banco-potencia_original.mp4');
+function clipDyno(W, H) { // fotogramas del clip real (Kling): reencuadre del plano de la rueda, sin la esquina con la marca de agua
+  const dir = dynDir(W, H); fs.mkdirSync(dir, { recursive: true });
+  const [pw, ph, cw, cx] = W > H ? [Math.round(1000 * H / 1080), H, 667, 80] : [W, Math.round(1100 * W / 1080), 707, 60];
+  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', CLIP, '-t', String(D1 - D0), '-vf',
+    `fps=${FPS},crop=${cw}:720:${cx}:0,scale=${pw}:${ph}:flags=lanczos,unsharp=5:5:0.5,eq=contrast=1.06:saturation=1.05`, '-q:v', '2', '-start_number', '0', path.join(dir, 'd%04d.jpg')]);
+}
 async function renderDyno(W, H) { // fotogramas del banco 3D (servidor local para módulos ES)
   const dir = dynDir(W, H); fs.mkdirSync(dir, { recursive: true });
   const pw = W > H ? Math.round(1000 * H / 1080) : W, ph = W > H ? H : Math.round(1100 * W / 1080);
@@ -197,9 +204,9 @@ async function renderDyno(W, H) { // fotogramas del banco 3D (servidor local par
 
 (async () => {
   fs.mkdirSync(path.join(P, 'video'), { recursive: true }); fs.mkdirSync(TMP, { recursive: true });
-  await renderDyno(1080, 1920); await renderDyno(1920, 1080);
+  if (fs.existsSync(CLIP)) { clipDyno(1080, 1920); clipDyno(1920, 1080); } else { await renderDyno(1080, 1920); await renderDyno(1920, 1080); }
   const b = await chromium.launch();
-  for (const [W, H, name] of [[1080, 1920, 'ACM_anuncio-reprogramacion_9x16_v2.mp4'], [1920, 1080, 'ACM_anuncio-reprogramacion_16x9_v2.mp4']]) {
+  for (const [W, H, name] of [[1080, 1920, 'ACM_anuncio-reprogramacion_9x16_v3.mp4'], [1920, 1080, 'ACM_anuncio-reprogramacion_16x9_v3.mp4']]) {
     const tmp = fs.mkdtempSync(path.join(TMP, 'acm-'));
     fs.writeFileSync(path.join(tmp, 'p.html'), page(W, H));
     const p = await b.newPage({ viewport: { width: W, height: H } });
@@ -211,7 +218,10 @@ async function renderDyno(W, H) { // fotogramas del banco 3D (servidor local par
       await p.screenshot({ path: path.join(tmp, `f${String(f).padStart(4, '0')}.jpg`), type: 'jpeg', quality: 92 });
     }
     await p.close();
-    const wav = path.join(tmp, 'a.wav'); audio(wav);
+    const wav0 = path.join(tmp, 'a0.wav'); audio(wav0); const wav = path.join(tmp, 'a.wav');
+    if (fs.existsSync(CLIP)) execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', wav0, '-i', CLIP, '-filter_complex',
+      `[1:a]atrim=0:${D1 - D0},afade=t=in:d=0.2,afade=t=out:st=${D1 - D0 - 0.4}:d=0.4,volume=1.4,adelay=${Math.round(D0 * 1000)}|${Math.round(D0 * 1000)},apad[c];[0:a][c]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.9[o]`, '-map', '[o]', '-c:a', 'pcm_s16le', wav]);
+    else fs.copyFileSync(wav0, wav);
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-i', path.join(tmp, 'f%04d.jpg'), '-i', wav,
       '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'slow', '-crf', '18', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', path.join(P, 'video', name)]);
     for (const [k, s] of [[1, 1.2], [2, 3.4], [3, 7.6], [4, 10.6], [5, 14.1], [6, 18.0]])
