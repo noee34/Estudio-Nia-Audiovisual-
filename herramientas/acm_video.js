@@ -122,7 +122,7 @@ window.base=(t)=>{
   $('arc').style.strokeDashoffset=100-rp/8*100; $('rpm').textContent=(rp).toFixed(1);
   $('t2').style.opacity=eo((t-2.6)/0.3);
   // portátil
-  const lw=$('lapw'); const lk=eo((t-4.0)/0.6)*(1-cl((t-8.35)/0.25)); lw.style.opacity=lk; lw.style.transform='translate(-50%,calc(-50% + '+(60*(1-eo((t-4.0)/0.6)))+'px)) scale('+(0.96+0.06*cl((t-4)/4.6))+')';
+  const lw=$('lapw'); const lk=0; /* escena del portátil eliminada a petición del cliente */ lw.style.opacity=lk; lw.style.transform='translate(-50%,calc(-50% + '+(60*(1-eo((t-4.0)/0.6)))+'px)) scale('+(0.96+0.06*cl((t-4)/4.6))+')';
   const pr=cl((t-5.6)/1.6);
   cells.forEach((c,i)=>{const r=+c.dataset.r, cc=+c.dataset.c; let v=(r/7)*0.5+(cc/11)*0.4+0.05*Math.sin(r*3+cc); v=v+pr*0.18*Math.sin(cc/11*Math.PI); v=Math.max(0,Math.min(1,v)); c.style.background=heat(v); c.textContent=(10+v*90).toFixed(0)});
   $('c1').style.strokeDashoffset=100-100*eio((t-4.6)/1.0); $('l1').setAttribute('opacity',cl((t-5.5)/0.3));
@@ -210,7 +210,7 @@ async function renderDyno(W, H) { // fotogramas del banco 3D (servidor local par
   fs.mkdirSync(path.join(P, 'video'), { recursive: true }); fs.mkdirSync(TMP, { recursive: true });
   if (fs.existsSync(CLIP)) { clipDyno(1080, 1920); clipDyno(1920, 1080); } else { await renderDyno(1080, 1920); await renderDyno(1920, 1080); }
   const b = await chromium.launch();
-  for (const [W, H, name] of [[1080, 1920, 'ACM_anuncio-reprogramacion_9x16_v6.mp4'], [1920, 1080, 'ACM_anuncio-reprogramacion_16x9_v6.mp4']]) {
+  for (const [W, H, name] of [[1080, 1920, 'ACM_anuncio-reprogramacion_9x16_base.mp4'], [1920, 1080, 'ACM_anuncio-reprogramacion_16x9_base.mp4']]) {
     const tmp = fs.mkdtempSync(path.join(TMP, 'acm-'));
     fs.writeFileSync(path.join(tmp, 'p.html'), page(W, H));
     const p = await b.newPage({ viewport: { width: W, height: H } });
