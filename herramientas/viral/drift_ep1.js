@@ -13,7 +13,7 @@ const OUT = path.join(ROOT, 'MARCA/10_AUDIOVISUAL/proyectos/viral');
 const FONT = path.join(OUT, 'fuentes/Fredoka-Variable.ttf');
 const FPS = 30, W = 1080, H = 1920;
 // escenas: [id, duración]
-const SC = [['intro', 3.8], ['p1', 6], ['p2', 6.2], ['p3', 5.8], ['p4', 6], ['p5', 6.2], ['p6', 5.4], ['outro', 3.8]];
+const SC = [['intro', 3.8], ['p1', 6.6], ['p2', 6], ['p3', 8.4], ['p4', 5.4], ['outro', 4.6]];
 const START = []; let acc = 0; for (const [, d] of SC) { START.push(acc); acc += d; } const TOTAL = acc;
 
 const page = `<!doctype html><html><head><meta charset="utf-8"><style>
@@ -58,53 +58,53 @@ const S={
   txt('(rompiendo lo menos posible)',540,550,52,INK,'center',false,0);
   const cx=540+Math.sin(t*2.2)*150, ang=-0.9+Math.sin(t*4)*0.2;smoke(cx+60,1120,t,7,1.2);car(cx,1050,ang,1.25,RED,1,{rear:true});
   bubble('¡Soy DRIFTZILLA!',600,760,t,0.6);
-  txt('6 PASOS',540,1580,96,'#fff','center',true,0.04);},
- p1(t){bg(YEL,t);header(1,'COCHE DE\\nPROPULSIÓN',t);
+  txt('4 PASOS',540,1580,96,'#fff','center',true,0.04);},
+ p1(t){bg(PINK,t);header(1,'COMPRA UN\\nCOCHE BARATO',t);
+  const ads=[['BMW 318','900 €','Pasa ITV… en 2019',RED],['Coupé','650 €','Hace un ruidito',BLUE],['Compacto','1.200 €','Echa humo (azul)','#2ecc71'],['Berlina','500 €','Arranca empujando',YEL]];
+  ads.forEach(([n,pr,d,col],i)=>{const k=back((t-0.4-i*0.45)/0.4);if(k<=0)return;const X=i%2?790:290,Y=i<2?820:1200;
+   x.save();x.translate(X,Y);x.scale(k,k);x.rotate((i%2?1:-1)*0.03);rr(-215,-170,430,340,30);x.fillStyle='#fff';x.fill();ink(7);
+   rr(-185,-145,370,170,20);x.fillStyle='#e9eef5';x.fill();ink(5);
+   car(0,-60,Math.PI/2,0.48,col,i===3?-1:1,{});
+   x.textAlign='left';x.fillStyle=RED;x.font='700 50px F';x.fillText(pr,-185,72);
+   x.fillStyle=INK;x.font='700 34px F';x.fillText(n,-185,112);x.fillStyle='#666';x.font='600 30px F';x.fillText(d,-185,148);x.restore()});
+  const st=back((t-2.6)/0.35);if(st>0){x.save();x.translate(540,1010);x.rotate(-0.1);x.scale(st,st);rr(-420,-62,840,124,24);x.fillStyle=RED;x.fill();ink(8);x.font='700 54px F';x.textAlign='center';x.textBaseline='middle';x.fillStyle='#fff';x.fillText('(A SER POSIBLE QUE ARRANQUE)',0,4);x.restore()}
+  bubble('A mí me compraron\\npor 900 € y un bocadillo',540,1490,t,3.6);
+  sub('Wallapop o segunda mano: lo barato\\nsale caro… pero menos',t,1660);},
+ p2(t){bg(YEL,t);header(2,'COCHE DE\\nPROPULSIÓN',t);
   const a=eo((t-0.3)/0.5),b=eo((t-1.4)/0.5);
   x.globalAlpha=a;car(320,950,0,1.05,RED,1,{rear:true});check(320,1210,a,true);txt('TRACCIÓN',320,1300,46,'#fff');txt('TRASERA',320,1356,46,'#fff');x.globalAlpha=1;
   x.globalAlpha=b;car(770,950,Math.sin(t*20)*0.03*(t>1.4),1.05,BLUE,-1,{front:true});check(770,1210,b,false);txt('TRACCIÓN',770,1300,46,'#fff');txt('DELANTERA',770,1356,46,'#fff');x.globalAlpha=1;
   bubble('Yo solo sé\\nir recto…',800,700,t,2.2,-1);
   sub('Las ruedas de atrás empujan\\n(BMW E36/E46, MX-5, GT86…)',t,1580);},
- p2(t){bg(PINK,t);header(2,'AUTOBLOCANTE\\n(O SOLDADO)',t);
-  const ph=t<2.6?0:1, sp=t*(ph?14:10);
-  x.save();x.translate(540,1000);rr(-260,-14,520,28,14);x.fillStyle='#ddd';x.fill();ink(7);
-  for(const [sx,spin] of [[-300,1],[300,ph]]){x.save();x.translate(sx,0);rr(-46,-110,92,220,24);x.fillStyle=INK;x.fill();
-    for(let i=0;i<5;i++){const yy=((i*44+(spin?sp*60:0))%220)-110;x.fillStyle='#555';x.fillRect(-46,yy,92,10)}x.restore();
-    if(spin){smoke(sx+40,90,t,4,0.8)}}
-  rr(-60,-50,120,100,20);x.fillStyle=ph?'#2ecc71':'#bbb';x.fill();ink(7);txt(ph?'LSD':'?',0,0,48,'#fff');x.restore();
-  txt(ph?'¡LAS DOS GIRAN IGUAL!':'Una gira… la otra mira',540,1260,56,ph?'#fff':INK,'center',ph);
-  bubble(ph?'Soldado = barato.\\nPero en las rotondas\\nsuenas a carrito del súper':'¿Y yo qué hago?',540,1480,t,ph?3.0:0.9);},
- p3(t){bg(BLUE,t);header(3,'SEGURIDAD\\nPRIMERO',t);
-  const a=eo((t-0.3)/0.4),b=eo((t-1.5)/0.4);
-  x.globalAlpha=a;car(540,900,Math.sin(t*3)*0.1,1.0,RED,1,{helmet:true});x.globalAlpha=1;
-  bubble('Tu cabeza vale más\\nque tu coche de 800 €',540,640,t,0.9);
-  x.globalAlpha=b;x.save();x.translate(290,1300);rr(-110,-60,220,120,20);x.fillStyle='#fff';x.fill();ink(7);txt('CALLE',0,0,46,INK,'center',false);x.restore();check(400,1240,b,false);
-  x.save();x.translate(780,1300);for(let i=0;i<4;i++)for(let j=0;j<3;j++){x.fillStyle=(i+j)%2?INK:'#fff';x.fillRect(-120+i*60,-60+j*40,60,40)}x.strokeStyle=INK;x.lineWidth=7;x.strokeRect(-120,-60,240,120);x.restore();check(900,1240,b,true);x.globalAlpha=1;
-  sub('Casco + circuito o tanda de drift.\\nLa calle no es tu circuito',t,1520);},
- p4(t){bg('#5b5f6a',t);header(4,'EL DONUT\\nEN MOJADO',t);
-  const spin=t<4.2, a=Math.min(t,4.2)*5;
-  x.save();x.translate(540,1050);x.lineWidth=16;x.strokeStyle='rgba(20,20,24,.55)';x.beginPath();for(let q=0;q<a;q+=0.05){const r=210+Math.sin(q*3)*6;q===0?x.moveTo(Math.cos(q)*r,Math.sin(q)*r):x.lineTo(Math.cos(q)*r,Math.sin(q)*r)}x.stroke();
-  for(let i=0;i<30;i++){const yy=((i*97+t*900)%1200)-600,xx=(i*211)%1000-500;x.beginPath();x.moveTo(xx,yy);x.lineTo(xx-10,yy+40);x.lineWidth=5;x.strokeStyle='rgba(200,230,255,.7)';x.stroke()}
-  if(spin){car(Math.cos(a)*210,Math.sin(a)*210,a+Math.PI*0.95,0.9,RED,1,{rear:true});smoke(Math.cos(a)*210+30,Math.sin(a)*210,t,5,0.8)}
-  else{car(Math.cos(a)*210,Math.sin(a)*210,a+Math.PI*0.95+Math.sin(t*8)*0.08,0.9,RED,1,{dizzy:t*10})}
+ p3(t){bg('#5b5f6a',t);header(3,'EL CONO',t);
+  const drift=t>=3.4, a=t*(drift?3.2:2.2), R=drift?250:230;
+  x.save();x.translate(540,1080);
+  // marcas de neumático
+  if(drift){x.lineWidth=18;x.strokeStyle='rgba(20,20,24,.5)';x.beginPath();x.arc(0,0,R+20,0,7);x.stroke();x.beginPath();x.arc(0,0,R-20,0,7);x.stroke()}
+  // cono (visto desde arriba)
+  x.beginPath();x.arc(0,0,58,0,7);x.fillStyle='#ff8c1a';x.fill();ink(7);x.beginPath();x.arc(0,0,34,0,7);x.fillStyle='#fff';x.fill();ink(5);x.beginPath();x.arc(0,0,16,0,7);x.fillStyle='#ff8c1a';x.fill();ink(5);
+  const cxp=Math.cos(a)*R, cyp=Math.sin(a)*R, slip=drift?0.75+0.12*Math.sin(t*5):0.12, nose=a+Math.PI/2+slip;
+  if(drift)smoke(cxp-Math.cos(nose)*70,cyp-Math.sin(nose)*70,t,6,0.9);
+  car(cxp,cyp,nose+Math.PI/2,0.85,RED,1,{rear:drift});
   x.restore();
-  if(!spin)bubble('Vale… creo que\\nya lo pillo 🌀'.replace(' 🌀',''),540,640,t,4.25);
-  sub('Despacio y con el suelo mojado:\\naprendes a sentir el derrape',t);},
- p5(t){bg(TEAL,t);header(5,'CONTRAVOLANTE\\n+ GAS',t);
-  const ang=Math.sin(t*2.4)*0.9;
-  x.save();x.translate(330,1020);x.rotate(-ang);x.beginPath();x.arc(0,0,150,0,7);x.lineWidth=34;x.strokeStyle=INK;x.stroke();x.beginPath();x.moveTo(-150,0);x.lineTo(150,0);x.moveTo(0,0);x.lineTo(0,150);x.lineWidth=26;x.stroke();x.beginPath();x.arc(0,0,40,0,7);x.fillStyle=RED;x.fill();ink(7);x.restore();
-  const gas=0.5+0.5*Math.sin(t*4.8);x.save();x.translate(800,1040);rr(-70,-170,140,340,30);x.fillStyle='#fff';x.fill();ink(7);rr(-50,150-300*gas,100,300*gas,20);x.fillStyle=RED;x.fill();x.restore();txt('GAS',800,1260,52,'#fff');
-  bubble(t<3.2?'Tu cerebro:\\n¡¡PÁNICO!!':'Tus manos:\\ncontravolante 😎'.replace(' 😎',''),540,690,t,t<3.2?0.8:3.2);
-  sub('Gira el volante hacia donde se va\\nla trasera y dosifica el gas',t,1520);},
- p6(t){bg(YEL,t);header(6,'PRACTICA\\n(MUCHO)',t);
+  // inserto arriba a la derecha: volante + gas
+  if(drift){const k=back((t-3.5)/0.35);x.save();x.translate(840,560);x.scale(k,k);rr(-200,-120,400,240,30);x.fillStyle='rgba(255,255,255,.95)';x.fill();ink(7);
+    const sw=-0.55-0.25*Math.sin(t*5);x.save();x.translate(-80,0);x.rotate(sw);x.beginPath();x.arc(0,0,70,0,7);x.lineWidth=18;x.strokeStyle=INK;x.stroke();x.beginPath();x.moveTo(-70,0);x.lineTo(70,0);x.moveTo(0,0);x.lineTo(0,70);x.lineWidth=14;x.stroke();x.beginPath();x.arc(0,0,18,0,7);x.fillStyle=RED;x.fill();x.restore();
+    const gas=0.55+0.35*Math.sin(t*5+1);rr(90,-90,70,180,16);x.fillStyle='#eee';x.fill();ink(5);rr(98,82-164*gas,54,164*gas,10);x.fillStyle=RED;x.fill();
+    x.fillStyle=INK;x.font='700 26px F';x.textAlign='center';x.fillText('VOLANTE',-80,105);x.fillText('GAS',125,105);x.restore()}
+  if(!drift)bubble('Vuelta 1… vuelta 2…\\nvuelta 47…',540,640,t,0.9);
+  else bubble('¡Se me va!\\n¡¡CONTRAVOLANTE!!',330,640,t,3.45);
+  sub(drift?'Cuando la trasera se suelta: gira hacia\\ndonde se va y dosifica el gas':'Da vueltas al cono y busca el límite\\n(despacio y mejor en mojado)',t,1560);},
+ p4(t){bg(YEL,t);header(4,'PRACTICA\\n(MUCHO)',t);
   const n=Math.floor(cl(t/3.2)*15);let k=0;for(let row=0;row<5&&k<n;row++)for(let i=0;i<5-row&&k<n;i++,k++){const X=540+(i-(4-row)/2)*130,Y=1330-row*95;x.beginPath();x.ellipse(X,Y,62,46,0,0,7);x.fillStyle=INK;x.fill();x.beginPath();x.ellipse(X,Y,26,18,0,0,7);x.fillStyle='#777';x.fill()}
   txt('×'+(n*2),850,860,96,RED);
   bubble('Tu sueldo: ruedas.\\nTus amigos: ¿quedamos?\\nTú: tengo tanda.',540,690,t,1.2);
   sub('Ruedas usadas y baratas.\\nCada tanda cuenta',t,1540);},
- outro(t){bg(RED,t);const k=back(t/0.5);car(540,880,Math.sin(t*6)*0.15,1.3*k,YEL,1,{rear:true,look:Math.sin(t*3)});
-  txt('PARTE 2:',540,1270,80,YEL);txt('FRENO DE MANO Y',540,1370,72,'#fff');txt('PATADA DE EMBRAGUE',540,1460,72,'#fff');
-  const p=0.5+0.5*Math.sin(t*8);x.save();x.translate(540,1640);x.scale(1+0.06*p,1+0.06*p);rr(-260,-60,520,120,60);x.fillStyle='#fff';x.fill();ink(8);x.restore();txt('SÍGUEME →',540,1640,64,RED,'center',false);
-  bubble('O Driftzilla\\nse pone triste',540,560,t,0.7);},
+ outro(t){bg(RED,t);const k=back(t/0.5);car(540,860,Math.sin(t*6)*0.15,1.3*k,YEL,1,{rear:true,look:Math.sin(t*3)});
+  txt('PARTE 2:',540,1210,80,YEL);txt('FRENO DE MANO Y',540,1305,70,'#fff');txt('PATADA DE EMBRAGUE',540,1390,70,'#fff');
+  const p=0.5+0.5*Math.sin(t*8);x.save();x.translate(540,1540);x.scale(1+0.06*p,1+0.06*p);rr(-260,-60,520,120,60);x.fillStyle='#fff';x.fill();ink(8);x.restore();txt('SÍGUEME →',540,1540,64,RED,'center',false);
+  const e=eo((t-1.0)/0.4);x.globalAlpha=e;txt('(y para más errores',540,1660,46,'#fff');txt('financieros, sigue también)',540,1715,46,'#fff');x.globalAlpha=1;
+  bubble('O Driftzilla\\nse pone triste',540,540,t,0.7);},
 };
 window.draw=(t)=>{let i=0;while(i<SC.length-1&&t>=START[i+1])i++;const tl=t-START[i];S[SC[i][0]](tl);
   // transición: barrido blanco rápido al cambiar de escena
@@ -129,7 +129,8 @@ function wav(file, dur) {
     if (k % 2 === 0) { const g = lead[(k / 2) % 8]; add(t, (u) => 0.07 * (Math.sin(2 * Math.PI * g * u) + 0.3 * Math.sin(4 * Math.PI * g * u)) * Math.exp(-u * 5), beat * 2); }
   }
   // derrapes (ruido filtrado) en intro, donut y salida
-  for (const [t0, len] of [[0.3, 1.6], [START[4] + 0.4, 3.5], [START[7] + 0.1, 1.2]]) add(t0, (u) => 0.12 * rnd() * Math.sin(Math.PI * Math.min(1, u / len)) * (0.6 + 0.4 * Math.sin(u * 90)), len);
+  for (const [t0, len] of [[0.3, 1.6], [START[3] + 3.4, 4.8], [START[5] + 0.1, 1.2]]) add(t0, (u) => 0.12 * rnd() * Math.sin(Math.PI * Math.min(1, u / len)) * (0.6 + 0.4 * Math.sin(u * 90)), len);
+  [0.4, 0.85, 1.3, 1.75].forEach((d) => add(START[1] + d, (u) => 0.14 * (Math.sin(2 * Math.PI * 1318 * u) + Math.sin(2 * Math.PI * 1760 * u)) * Math.exp(-u * 10), 0.4));
   // «boing» al entrar cada paso
   START.slice(1).forEach((t0) => add(t0, (u) => 0.18 * Math.sin(2 * Math.PI * (300 + 500 * Math.exp(-u * 12)) * u) * Math.exp(-u * 8), 0.4));
   let m = 0; for (const v of b) m = Math.max(m, Math.abs(v)); const sc = 0.9 / m;
@@ -148,7 +149,7 @@ function wav(file, dur) {
   for (let i = 0; i < NF; i++) { await p.evaluate((t) => window.draw(t), i / FPS); await p.screenshot({ path: path.join(tmp, `f${String(i).padStart(5, '0')}.jpg`), type: 'jpeg', quality: 90 }); }
   await b.close(); if (errs.length) console.log('ERRORES', errs.slice(0, 3));
   const a = path.join(tmp, 'a.wav'); wav(a, TOTAL);
-  const dst = path.join(OUT, 'VIRAL_driftzilla-ep1_como-empezar_9x16_v2.mp4');
+  const dst = path.join(OUT, 'VIRAL_driftzilla-ep1_como-empezar_9x16_v3.mp4');
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-i', path.join(tmp, 'f%05d.jpg'), '-i', a, '-c:v', 'libx264', '-preset', 'slow', '-crf', '19', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', dst]);
   SC.forEach(([id], i) => fs.copyFileSync(path.join(tmp, `f${String(Math.round((START[i] + 1.8) * FPS)).padStart(5, '0')}.jpg`), path.join(OUT, `VIRAL_driftzilla-ep1_${String(i).padStart(2, '0')}-${id}.jpg`)));
   fs.rmSync(tmp, { recursive: true, force: true });
