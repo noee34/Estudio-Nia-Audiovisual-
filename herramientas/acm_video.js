@@ -91,7 +91,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
 <div class="c" id="endw" style="text-align:center"><img id="logo" src="${LOGO}"><div class="sub" id="t6" style="margin-top:${(v ? 60 : 40) * u}px">Reprogramación de centralitas</div><div id="t7" style="margin-top:${(v ? 70 : 40) * u}px"><span class="pill">PIDE TU CITA</span></div></div>
 <div id="dyno"><img id="dimg"><div id="dtag">BANCO DE POTENCIA</div><div id="drpm">0 RPM</div>
  <div id="dpan"><div class="dl">CURVA DE POTENCIA · <b>ACM</b></div>
-  <div class="dro"><div class="r">POTENCIA<b id="dcv">0 CV</b></div><div>PAR<b id="dnm">0 Nm</b></div></div>
+  <div class="dro"><div class="r">POTENCIA MÁX.<b id="dcv">0 CV</b></div><div>PAR MÁX.<b id="dnm">0 Nm</b></div></div>
   <svg id="dg" viewBox="0 0 600 340" style="width:100%;flex:1;min-height:0">
    ${Array.from({ length: 6 }, (_, i) => `<line x1="40" x2="590" y1="${20 + i * 58}" y2="${20 + i * 58}" stroke="#1d2126"/>`).join('')}
    ${Array.from({ length: 7 }, (_, i) => `<line y1="20" y2="310" x1="${40 + i * 91.6}" x2="${40 + i * 91.6}" stroke="#1d2126"/><text x="${40 + i * 91.6}" y="332" fill="#5c6168" font-family="S" font-size="14" text-anchor="middle">${i + 1}k</text>`).join('')}
@@ -154,7 +154,7 @@ window.dyno=(t)=>{ // t local 0..4.5
   const r=1000+6000*eio((t-0.35)/3.6);
   document.getElementById('da').setAttribute('d',path(Pa,r));
   const dd=document.getElementById('dd'); dd.setAttribute('cx',X(r)); dd.setAttribute('cy',Y(Pa(r)));
-  const cv=Pa(r), nm=cv*7023/Math.max(r,1000);
+  let cv=0,nm=0; for(let x=1000;x<=r;x+=25){const c=Pa(x); cv=Math.max(cv,c); nm=Math.max(nm,c*7023/x);} // valores máximos, como en la hoja de banco
   document.getElementById('dcv').textContent=Math.round(cv)+' CV'; document.getElementById('dnm').textContent=Math.round(nm)+' Nm';
   document.getElementById('drpm').textContent=Math.round(r/10)*10+' RPM';
 };
@@ -206,7 +206,7 @@ async function renderDyno(W, H) { // fotogramas del banco 3D (servidor local par
   fs.mkdirSync(path.join(P, 'video'), { recursive: true }); fs.mkdirSync(TMP, { recursive: true });
   if (fs.existsSync(CLIP)) { clipDyno(1080, 1920); clipDyno(1920, 1080); } else { await renderDyno(1080, 1920); await renderDyno(1920, 1080); }
   const b = await chromium.launch();
-  for (const [W, H, name] of [[1080, 1920, 'ACM_anuncio-reprogramacion_9x16_v3.mp4'], [1920, 1080, 'ACM_anuncio-reprogramacion_16x9_v3.mp4']]) {
+  for (const [W, H, name] of [[1080, 1920, 'ACM_anuncio-reprogramacion_9x16_v4.mp4'], [1920, 1080, 'ACM_anuncio-reprogramacion_16x9_v4.mp4']]) {
     const tmp = fs.mkdtempSync(path.join(TMP, 'acm-'));
     fs.writeFileSync(path.join(tmp, 'p.html'), page(W, H));
     const p = await b.newPage({ viewport: { width: W, height: H } });
